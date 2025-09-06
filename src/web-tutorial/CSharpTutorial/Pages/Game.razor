@@ -1,0 +1,370 @@
+@page "/game"
+
+<PageTitle>OCR Assessment Task: Number Guessing Game</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>🎮 OCR Assessment Task: Number Guessing Game</h1>
+            <p class="lead">Apply your programming knowledge in this exam-style programming task that demonstrates key OCR A-Level concepts.</p>
+            
+            <div class="alert alert-success">
+                <h5>📋 Assessment Criteria Demonstrated</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="mb-0">
+                            <li>✅ Variable declaration and initialization</li>
+                            <li>✅ Input validation and error handling</li>
+                            <li>✅ Selection constructs (if/else)</li>
+                            <li>✅ Iteration constructs (while loops)</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="mb-0">
+                            <li>✅ Boolean logic and comparison operators</li>
+                            <li>✅ Random number generation</li>
+                            <li>✅ Program flow control</li>
+                            <li>✅ User interface design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>🎯 Number Guessing Game</h4>
+                    <p class="mb-0">Can you guess the secret number between 1 and 100?</p>
+                </div>
+                <div class="card-body">
+                    @if (!gameStarted)
+                    {
+                        <div class="text-center">
+                            <h5>Welcome to the Number Guessing Game!</h5>
+                            <p>I'll think of a number between 1 and 100. You have @maxAttempts attempts to guess it.</p>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Choose Difficulty Level:</label>
+                                <select class="form-select" @bind="selectedDifficulty">
+                                    <option value="easy">Easy (10 attempts)</option>
+                                    <option value="medium">Medium (7 attempts)</option>
+                                    <option value="hard">Hard (5 attempts)</option>
+                                </select>
+                            </div>
+                            
+                            <button class="btn btn-success btn-lg" @onclick="StartGame">🚀 Start Game</button>
+                        </div>
+                    }
+                    else if (gameWon || gameOver)
+                    {
+                        <div class="text-center">
+                            @if (gameWon)
+                            {
+                                <div class="alert alert-success">
+                                    <h4>🎉 Congratulations!</h4>
+                                    <p>You guessed the number <strong>@secretNumber</strong> in <strong>@attempts</strong> attempts!</p>
+                                    @if (attempts <= 3)
+                                    {
+                                        <p><strong>Excellent!</strong> You have great logical thinking skills! 🏆</p>
+                                    }
+                                    else if (attempts <= 5)
+                                    {
+                                        <p><strong>Well done!</strong> Good problem-solving approach! 👍</p>
+                                    }
+                                    else
+                                    {
+                                        <p><strong>Success!</strong> You got there in the end! 🎯</p>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-danger">
+                                    <h4>😔 Game Over</h4>
+                                    <p>You ran out of attempts! The number was <strong>@secretNumber</strong>.</p>
+                                    <p>Try using a more systematic approach next time - think about binary search!</p>
+                                </div>
+                            }
+                            
+                            <div class="mt-3">
+                                <h5>📊 Game Statistics</h5>
+                                <p>Games Played: @gamesPlayed | Games Won: @gamesWon | Win Rate: @(gamesPlayed > 0 ? (gamesWon * 100 / gamesPlayed) : 0)%</p>
+                            </div>
+                            
+                            <button class="btn btn-primary" @onclick="ResetGame">🔄 Play Again</button>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>🎯 Make Your Guess</h5>
+                                <p>Attempts remaining: <span class="badge bg-warning">@(maxAttempts - attempts)</span></p>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Enter your guess (1-100):</label>
+                                    <input type="number" class="form-control" @bind="currentGuess" min="1" max="100" 
+                                           @onkeypress="@((e) => { if (e.Key == "Enter") MakeGuess(); })" />
+                                </div>
+                                
+                                <button class="btn btn-primary" @onclick="MakeGuess" disabled="@(currentGuess < 1 || currentGuess > 100)">
+                                    🎯 Submit Guess
+                                </button>
+                                
+                                @if (invalidInput)
+                                {
+                                    <div class="alert alert-warning mt-2">
+                                        ⚠️ Please enter a number between 1 and 100!
+                                    </div>
+                                }
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h5>💡 Strategy Hints</h5>
+                                <div class="alert alert-info">
+                                    <p><strong>Binary Search Strategy:</strong></p>
+                                    <ol class="mb-0">
+                                        <li>Start with 50 (middle of 1-100)</li>
+                                        <li>If too high, try 25 (middle of 1-49)</li>
+                                        <li>If too low, try 75 (middle of 51-100)</li>
+                                        <li>Keep halving the range!</li>
+                                    </ol>
+                                </div>
+                                
+                                @if (attempts > 0)
+                                {
+                                    <div class="mt-3">
+                                        <h6>🎯 Current Range:</h6>
+                                        <p>Based on your guesses, the number is between <strong>@minRange</strong> and <strong>@maxRange</strong></p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>📝 Guess History</h5>
+                </div>
+                <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                    @if (guessHistory.Any())
+                    {
+                        @foreach (var guess in guessHistory)
+                        {
+                            <div class="mb-2 p-2 rounded @(guess.Contains("🎉") ? "bg-success text-white" : 
+                                                          guess.Contains("📈") ? "bg-info text-white" : "bg-warning text-dark")">
+                                @guess
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted">Your guesses will appear here...</p>
+                    }
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>🧠 Algorithm Analysis</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Time Complexity:</strong></p>
+                    <ul class="small">
+                        <li>Linear Search: O(n) - up to 100 guesses</li>
+                        <li>Binary Search: O(log n) - max 7 guesses</li>
+                    </ul>
+                    
+                    <p><strong>Your Performance:</strong></p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar @(GetPerformanceClass())" role="progressbar" 
+                             style="width: @(attempts > 0 ? (100 - (attempts * 10)) : 0)%">
+                        </div>
+                    </div>
+                    <small class="text-muted">Efficiency: @(attempts > 0 ? Math.Max(0, 100 - (attempts * 10)) : 0)%</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>💻 Programming Concepts Demonstrated</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6>Variables & Data Types</h6>
+                            <ul class="small">
+                                <li>Integer variables</li>
+                                <li>Boolean flags</li>
+                                <li>String collections</li>
+                                <li>Constants</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6>Selection Constructs</h6>
+                            <ul class="small">
+                                <li>If/else statements</li>
+                                <li>Nested conditions</li>
+                                <li>Boolean logic</li>
+                                <li>Comparison operators</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6>Iteration</h6>
+                            <ul class="small">
+                                <li>Game loop logic</li>
+                                <li>Conditional loops</li>
+                                <li>Loop control</li>
+                                <li>Counter variables</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6>Problem Solving</h6>
+                            <ul class="small">
+                                <li>Algorithm design</li>
+                                <li>Input validation</li>
+                                <li>Error handling</li>
+                                <li>User experience</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <a href="/lesson3" class="btn btn-outline-secondary">← Back to Lesson 3</a>
+                <a href="/" class="btn btn-primary">Return to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    // Game state variables
+    private bool gameStarted = false;
+    private bool gameWon = false;
+    private bool gameOver = false;
+    private int secretNumber = 0;
+    private int currentGuess = 0;
+    private int attempts = 0;
+    private int maxAttempts = 7;
+    private bool invalidInput = false;
+    
+    // Game statistics
+    private int gamesPlayed = 0;
+    private int gamesWon = 0;
+    
+    // Range tracking for hints
+    private int minRange = 1;
+    private int maxRange = 100;
+    
+    // Difficulty settings
+    private string selectedDifficulty = "medium";
+    
+    // History tracking
+    private List<string> guessHistory = new();
+    
+    private void StartGame()
+    {
+        // Set difficulty
+        maxAttempts = selectedDifficulty switch
+        {
+            "easy" => 10,
+            "medium" => 7,
+            "hard" => 5,
+            _ => 7
+        };
+        
+        // Initialize game state
+        var random = new Random();
+        secretNumber = random.Next(1, 101);
+        gameStarted = true;
+        gameWon = false;
+        gameOver = false;
+        attempts = 0;
+        currentGuess = 0;
+        invalidInput = false;
+        minRange = 1;
+        maxRange = 100;
+        guessHistory.Clear();
+        gamesPlayed++;
+    }
+    
+    private void MakeGuess()
+    {
+        // Input validation
+        if (currentGuess < 1 || currentGuess > 100)
+        {
+            invalidInput = true;
+            return;
+        }
+        
+        invalidInput = false;
+        attempts++;
+        
+        // Process the guess
+        if (currentGuess == secretNumber)
+        {
+            gameWon = true;
+            gamesWon++;
+            guessHistory.Add($"🎉 Guess {attempts}: {currentGuess} - CORRECT! You won!");
+        }
+        else if (currentGuess < secretNumber)
+        {
+            guessHistory.Add($"📈 Guess {attempts}: {currentGuess} - Too low! Try higher.");
+            minRange = Math.Max(minRange, currentGuess + 1);
+        }
+        else
+        {
+            guessHistory.Add($"📉 Guess {attempts}: {currentGuess} - Too high! Try lower.");
+            maxRange = Math.Min(maxRange, currentGuess - 1);
+        }
+        
+        // Check if game is over
+        if (attempts >= maxAttempts && !gameWon)
+        {
+            gameOver = true;
+            guessHistory.Add($"💔 Game Over! The number was {secretNumber}.");
+        }
+        
+        // Clear current guess for next attempt
+        currentGuess = 0;
+    }
+    
+    private void ResetGame()
+    {
+        gameStarted = false;
+        gameWon = false;
+        gameOver = false;
+        secretNumber = 0;
+        currentGuess = 0;
+        attempts = 0;
+        invalidInput = false;
+        minRange = 1;
+        maxRange = 100;
+        guessHistory.Clear();
+    }
+    
+    private string GetPerformanceClass()
+    {
+        if (attempts == 0) return "bg-secondary";
+        if (attempts <= 3) return "bg-success";
+        if (attempts <= 5) return "bg-warning";
+        return "bg-danger";
+    }
+}

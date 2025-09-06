@@ -1,0 +1,203 @@
+@page "/lesson1"
+
+<PageTitle>Lesson 1: Hello World</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>🎯 Lesson 1: Program Structure and Basic Syntax</h1>
+            <p class="lead">Master the fundamental structure of C# programs and understand program flow - essential for OCR A-Level Computer Science.</p>
+            <div class="alert alert-primary">
+                <strong>OCR Specification Links:</strong> Programming fundamentals, program structure, input/output operations
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>📝 Program Structure Analysis</h3>
+            <p>Understanding program structure is fundamental to the OCR specification. Let's analyze each component:</p>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h5>Code Example</h5>
+                </div>
+                <div class="card-body">
+                    <pre><code>using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello, World!");
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <button class="btn btn-success" @onclick="RunHelloWorld">▶️ Run Code</button>
+                <button class="btn btn-secondary ms-2" @onclick="ClearOutput">🗑️ Clear Output</button>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h3>📺 Output</h3>
+            <div class="card">
+                <div class="card-body bg-dark text-light" style="min-height: 200px; font-family: monospace;">
+                    @if (output.Any())
+                    {
+                        @foreach (var line in output)
+                        {
+                            <div>@line</div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-muted">Click "Run Code" to see the output...</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🔍 Understanding the Code</h3>
+            <div class="accordion" id="codeExplanation">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                            <code>using System;</code>
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            This tells C# we want to use built-in features like <code>Console.WriteLine</code>. 
+                            Think of it like importing a toolbox with useful tools.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                            <code>class Program</code>
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Every C# program needs at least one class. Think of it as a container for your code. 
+                            We named ours "Program" but you could call it anything.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                            <code>static void Main(string[] args)</code>
+                        </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            This is the entry point - where your program starts running. When you run your program, 
+                            it looks for this Main method and starts executing the code inside it.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                            <code>Console.WriteLine("Hello, World!");</code>
+                        </button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            This displays text on the screen. The text must be surrounded by double quotes, 
+                            and don't forget the semicolon at the end!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🎮 Try It Yourself!</h3>
+            <div class="card">
+                <div class="card-body">
+                    <h5>Exercise 1: Personal Greeting</h5>
+                    <p>Change the message to display your name instead of "Hello, World!"</p>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Enter your name:</label>
+                        <input type="text" class="form-control" @bind="userName" placeholder="Your name here..." />
+                    </div>
+                    
+                    <button class="btn btn-primary" @onclick="RunPersonalGreeting">▶️ Run Personal Greeting</button>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5>Exercise 2: Multiple Messages</h5>
+                    <p>Display multiple lines of text to tell a short story!</p>
+                    
+                    <button class="btn btn-primary" @onclick="RunMultipleMessages">▶️ Run Story Example</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <a href="/" class="btn btn-outline-secondary">← Back to Home</a>
+                <a href="/lesson2" class="btn btn-primary">Next: Variables →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<string> output = new();
+    private string userName = "";
+
+    private void RunHelloWorld()
+    {
+        output.Clear();
+        output.Add("Hello, World!");
+    }
+
+    private void RunPersonalGreeting()
+    {
+        output.Clear();
+        if (string.IsNullOrWhiteSpace(userName))
+        {
+            output.Add("Please enter your name first!");
+        }
+        else
+        {
+            output.Add($"Hello, {userName}!");
+            output.Add($"Welcome to C# programming, {userName}!");
+        }
+    }
+
+    private void RunMultipleMessages()
+    {
+        output.Clear();
+        output.Add("Once upon a time...");
+        output.Add("There was a student learning C#.");
+        output.Add("They wrote their first program.");
+        output.Add("And it worked perfectly!");
+        output.Add("The end. 🎉");
+    }
+
+    private void ClearOutput()
+    {
+        output.Clear();
+    }
+}

@@ -1,0 +1,350 @@
+@page "/lesson3"
+
+<PageTitle>Lesson 3: Control Structures</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>🎛️ Lesson 3: Control Structures</h1>
+            <p class="lead">Learn how to make your programs smart with decisions and loops!</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>🤔 Making Decisions with If/Else</h3>
+            <p>Sometimes your program needs to do different things based on conditions.</p>
+            
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5>Age Checker Example</h5>
+                </div>
+                <div class="card-body">
+                    <pre><code>int age = 16;
+if (age >= 18)
+{
+    Console.WriteLine("You can vote!");
+}
+else if (age >= 13)
+{
+    Console.WriteLine("You're a teenager!");
+}
+else
+{
+    Console.WriteLine("You're a child!");
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Enter an age to test:</label>
+                <input type="number" class="form-control" @bind="testAge" />
+            </div>
+            
+            <button class="btn btn-success" @onclick="RunAgeChecker">▶️ Check Age</button>
+            <button class="btn btn-secondary ms-2" @onclick="ClearOutput">🗑️ Clear</button>
+        </div>
+
+        <div class="col-md-6">
+            <h3>📺 Output</h3>
+            <div class="card">
+                <div class="card-body bg-dark text-light" style="min-height: 300px; font-family: monospace;">
+                    @if (output.Any())
+                    {
+                        @foreach (var line in output)
+                        {
+                            <div>@line</div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-muted">Run some code to see output...</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🔄 Loops - Repeating Actions</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>For Loop - Countdown</h5>
+                            <p>When you know how many times to repeat:</p>
+                            <div class="mb-3">
+                                <label class="form-label">Countdown from:</label>
+                                <input type="number" class="form-control" @bind="countdownStart" min="1" max="10" />
+                            </div>
+                            <button class="btn btn-primary" @onclick="RunCountdown">🚀 Start Countdown</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Multiplication Table</h5>
+                            <p>Generate a multiplication table:</p>
+                            <div class="mb-3">
+                                <label class="form-label">Table for number:</label>
+                                <input type="number" class="form-control" @bind="multiplyNumber" min="1" max="12" />
+                            </div>
+                            <button class="btn btn-success" @onclick="RunMultiplicationTable">📊 Generate Table</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🎯 Grade Calculator</h3>
+            <div class="card">
+                <div class="card-body">
+                    <p>Enter a test score to see the grade calculation using if/else if statements:</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label">Test Score (0-100):</label>
+                            <input type="number" class="form-control" @bind="testScore" min="0" max="100" />
+                        </div>
+                        <div class="col-md-8 d-flex align-items-end">
+                            <button class="btn btn-primary" @onclick="RunGradeCalculator">📝 Calculate Grade</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🎛️ Switch Statement Example</h3>
+            <div class="card">
+                <div class="card-body">
+                    <p>Select a day number to see the switch statement in action:</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label">Day Number (1-7):</label>
+                            <select class="form-control" @bind="dayNumber">
+                                <option value="1">1 - Monday</option>
+                                <option value="2">2 - Tuesday</option>
+                                <option value="3">3 - Wednesday</option>
+                                <option value="4">4 - Thursday</option>
+                                <option value="5">5 - Friday</option>
+                                <option value="6">6 - Saturday</option>
+                                <option value="7">7 - Sunday</option>
+                            </select>
+                        </div>
+                        <div class="col-md-8 d-flex align-items-end">
+                            <button class="btn btn-info" @onclick="RunDayChecker">📅 Check Day</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🔍 Comparison Operators</h3>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Operators:</h6>
+                            <ul>
+                                <li><code>==</code> - Equal to</li>
+                                <li><code>!=</code> - Not equal to</li>
+                                <li><code>&gt;</code> - Greater than</li>
+                                <li><code>&lt;</code> - Less than</li>
+                                <li><code>&gt;=</code> - Greater than or equal</li>
+                                <li><code>&lt;=</code> - Less than or equal</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Test Comparisons:</h6>
+                            <div class="mb-2">
+                                <label class="form-label">Number A:</label>
+                                <input type="number" class="form-control" @bind="compareA" />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Number B:</label>
+                                <input type="number" class="form-control" @bind="compareB" />
+                            </div>
+                            <button class="btn btn-warning" @onclick="RunComparisons">🔍 Compare Numbers</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="alert alert-success">
+                <h5>🎉 Congratulations!</h5>
+                <p class="mb-0">You've learned the fundamentals of C# programming! You now know how to:</p>
+                <ul class="mt-2 mb-0">
+                    <li>Write basic programs and display output</li>
+                    <li>Use variables to store different types of data</li>
+                    <li>Make decisions with if/else statements</li>
+                    <li>Repeat actions with loops</li>
+                    <li>Compare values and control program flow</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <a href="/lesson2" class="btn btn-outline-secondary">← Lesson 2: Variables</a>
+                <a href="/game" class="btn btn-success">Try the Number Game! 🎮</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<string> output = new();
+    
+    // Variables for different examples
+    private int testAge = 16;
+    private int countdownStart = 5;
+    private int multiplyNumber = 5;
+    private int testScore = 85;
+    private int dayNumber = 1;
+    private int compareA = 10;
+    private int compareB = 5;
+
+    private void RunAgeChecker()
+    {
+        output.Clear();
+        output.Add($"Checking age: {testAge}");
+        output.Add("");
+        
+        if (testAge >= 18)
+        {
+            output.Add("You are an adult! 🧑‍💼");
+            output.Add("You can vote, drive, and make important decisions.");
+        }
+        else if (testAge >= 13)
+        {
+            output.Add("You are a teenager! 🧑‍🎓");
+            output.Add("Enjoy these fun years of learning and growing!");
+        }
+        else
+        {
+            output.Add("You are a child! 👶");
+            output.Add("Keep learning and having fun!");
+        }
+    }
+
+    private void RunCountdown()
+    {
+        output.Clear();
+        output.Add("🚀 Countdown starting...");
+        output.Add("");
+        
+        for (int i = countdownStart; i >= 1; i--)
+        {
+            output.Add($"Countdown: {i}");
+        }
+        output.Add("🎉 Blast off!");
+    }
+
+    private void RunMultiplicationTable()
+    {
+        output.Clear();
+        output.Add($"📊 Multiplication table for {multiplyNumber}:");
+        output.Add("");
+        
+        for (int i = 1; i <= 10; i++)
+        {
+            int result = multiplyNumber * i;
+            output.Add($"{multiplyNumber} × {i} = {result}");
+        }
+    }
+
+    private void RunGradeCalculator()
+    {
+        output.Clear();
+        output.Add($"📝 Calculating grade for score: {testScore}");
+        output.Add("");
+        
+        string grade;
+        string message;
+        
+        if (testScore >= 90)
+        {
+            grade = "A";
+            message = "Excellent work! 🌟";
+        }
+        else if (testScore >= 80)
+        {
+            grade = "B";
+            message = "Good job! 👍";
+        }
+        else if (testScore >= 70)
+        {
+            grade = "C";
+            message = "Not bad! Keep it up! 📚";
+        }
+        else if (testScore >= 60)
+        {
+            grade = "D";
+            message = "You passed, but try to study more. 📖";
+        }
+        else
+        {
+            grade = "F";
+            message = "You need to study more. Don't give up! 💪";
+        }
+        
+        output.Add($"Grade: {grade}");
+        output.Add(message);
+    }
+
+    private void RunDayChecker()
+    {
+        output.Clear();
+        output.Add($"📅 Checking day number: {dayNumber}");
+        output.Add("");
+        
+        string dayName = dayNumber switch
+        {
+            1 => "Monday - Start of the work week! 💼",
+            2 => "Tuesday - Getting into the groove! 🎵",
+            3 => "Wednesday - Hump day! 🐪",
+            4 => "Thursday - Almost there! ⏰",
+            5 => "Friday - TGIF! 🎉",
+            6 => "Saturday - Weekend fun! 🎮",
+            7 => "Sunday - Rest day! 😴",
+            _ => "Invalid day number!"
+        };
+        
+        output.Add(dayName);
+    }
+
+    private void RunComparisons()
+    {
+        output.Clear();
+        output.Add($"🔍 Comparing {compareA} and {compareB}:");
+        output.Add("");
+        
+        output.Add($"{compareA} == {compareB} is {compareA == compareB}");
+        output.Add($"{compareA} != {compareB} is {compareA != compareB}");
+        output.Add($"{compareA} > {compareB} is {compareA > compareB}");
+        output.Add($"{compareA} < {compareB} is {compareA < compareB}");
+        output.Add($"{compareA} >= {compareB} is {compareA >= compareB}");
+        output.Add($"{compareA} <= {compareB} is {compareA <= compareB}");
+    }
+
+    private void ClearOutput()
+    {
+        output.Clear();
+    }
+}

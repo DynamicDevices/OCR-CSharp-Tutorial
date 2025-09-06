@@ -1,0 +1,338 @@
+@page "/lesson2"
+
+<PageTitle>Lesson 2: Variables and Data Types</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>📊 Lesson 2: Variables and Data Types</h1>
+            <p class="lead">Learn how to store and work with different types of information using variables!</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>🧠 What Are Variables?</h3>
+            <p>Think of variables as labeled boxes where you can store different types of information.</p>
+            
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5>Common Data Types</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>int</strong> - Whole numbers (5, -10, 1000)</li>
+                        <li><strong>double</strong> - Decimal numbers (3.14, -2.5)</li>
+                        <li><strong>string</strong> - Text ("Hello", "C# is fun!")</li>
+                        <li><strong>bool</strong> - True or false values</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5>Variable Examples</h5>
+                </div>
+                <div class="card-body">
+                    <pre><code>int age = 15;
+double height = 5.8;
+string name = "Alex";
+bool likesCode = true;
+
+Console.WriteLine($"Hi {name}!");
+Console.WriteLine($"Age: {age}");</code></pre>
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <button class="btn btn-success" @onclick="RunVariableExample">▶️ Run Example</button>
+                <button class="btn btn-secondary ms-2" @onclick="ClearOutput">🗑️ Clear</button>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h3>📺 Output</h3>
+            <div class="card">
+                <div class="card-body bg-dark text-light" style="min-height: 300px; font-family: monospace;">
+                    @if (output.Any())
+                    {
+                        @foreach (var line in output)
+                        {
+                            <div>@line</div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-muted">Run some code to see output...</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🧮 Math Operations</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Basic Math</h5>
+                            <div class="mb-3">
+                                <label class="form-label">First Number:</label>
+                                <input type="number" class="form-control" @bind="num1" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Second Number:</label>
+                                <input type="number" class="form-control" @bind="num2" />
+                            </div>
+                            <button class="btn btn-primary" @onclick="RunMathExample">🧮 Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>String Interpolation</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Your Name:</label>
+                                <input type="text" class="form-control" @bind="studentName" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Your Age:</label>
+                                <input type="number" class="form-control" @bind="studentAge" />
+                            </div>
+                            <button class="btn btn-success" @onclick="RunStringExample">💬 Create Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🎮 Interactive Exercises</h3>
+            
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>Exercise 1: About You</h5>
+                    <p>Fill in your information and see how variables work together!</p>
+                    
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="form-label">Name:</label>
+                            <input type="text" class="form-control" @bind="profileName" />
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Age:</label>
+                            <input type="number" class="form-control" @bind="profileAge" />
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Favorite Number:</label>
+                            <input type="number" class="form-control" @bind="favoriteNumber" />
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Likes Pizza:</label>
+                            <select class="form-control" @bind="likesPizza">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary mt-3" @onclick="RunProfileExample">👤 Show Profile</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5>Exercise 2: Simple Calculator</h5>
+                    <p>Try different operations with your numbers!</p>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label">Number A:</label>
+                            <input type="number" class="form-control" @bind="calcA" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Number B:</label>
+                            <input type="number" class="form-control" @bind="calcB" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Operation:</label>
+                            <select class="form-control" @bind="operation">
+                                <option value="+">Addition (+)</option>
+                                <option value="-">Subtraction (-)</option>
+                                <option value="*">Multiplication (*)</option>
+                                <option value="/">Division (/)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-success mt-3" @onclick="RunCalculator">🧮 Calculate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="alert alert-info">
+                <h5>💡 Key Takeaways</h5>
+                <ul class="mb-0">
+                    <li>Variables store different types of data</li>
+                    <li>Always declare the type when creating a variable</li>
+                    <li>Use meaningful names for your variables</li>
+                    <li>String interpolation ($"Hello {name}") is a clean way to combine text and variables</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <a href="/lesson1" class="btn btn-outline-secondary">← Lesson 1: Hello World</a>
+                <a href="/lesson3" class="btn btn-primary">Next: Control Flow →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<string> output = new();
+    
+    // Math example variables
+    private int num1 = 10;
+    private int num2 = 3;
+    
+    // String example variables
+    private string studentName = "";
+    private int studentAge = 0;
+    
+    // Profile variables
+    private string profileName = "";
+    private int profileAge = 0;
+    private int favoriteNumber = 0;
+    private bool likesPizza = true;
+    
+    // Calculator variables
+    private double calcA = 0;
+    private double calcB = 0;
+    private string operation = "+";
+
+    private void RunVariableExample()
+    {
+        output.Clear();
+        
+        int age = 15;
+        double height = 5.8;
+        string name = "Alex";
+        bool likesCode = true;
+        
+        output.Add("=== Student Information ===");
+        output.Add($"Name: {name}");
+        output.Add($"Age: {age}");
+        output.Add($"Height: {height} feet");
+        output.Add($"Likes coding: {likesCode}");
+        output.Add("");
+        output.Add($"Hi {name}! You are {age} years old and {height} feet tall.");
+    }
+
+    private void RunMathExample()
+    {
+        output.Clear();
+        output.Add("=== Math Operations ===");
+        output.Add($"First number: {num1}");
+        output.Add($"Second number: {num2}");
+        output.Add($"Addition: {num1} + {num2} = {num1 + num2}");
+        output.Add($"Subtraction: {num1} - {num2} = {num1 - num2}");
+        output.Add($"Multiplication: {num1} * {num2} = {num1 * num2}");
+        if (num2 != 0)
+        {
+            output.Add($"Division: {num1} / {num2} = {(double)num1 / num2:F2}");
+            output.Add($"Remainder: {num1} % {num2} = {num1 % num2}");
+        }
+        else
+        {
+            output.Add("Division: Cannot divide by zero!");
+        }
+    }
+
+    private void RunStringExample()
+    {
+        output.Clear();
+        if (string.IsNullOrWhiteSpace(studentName))
+        {
+            output.Add("Please enter your name first!");
+            return;
+        }
+        
+        output.Add("=== String Interpolation Example ===");
+        output.Add($"Hello, {studentName}!");
+        output.Add($"You are {studentAge} years old.");
+        output.Add($"Next year you will be {studentAge + 1}!");
+        output.Add($"In 10 years, you'll be {studentAge + 10} years old.");
+    }
+
+    private void RunProfileExample()
+    {
+        output.Clear();
+        if (string.IsNullOrWhiteSpace(profileName))
+        {
+            output.Add("Please fill in your name!");
+            return;
+        }
+        
+        output.Add("=== Your Profile ===");
+        output.Add($"Name: {profileName}");
+        output.Add($"Age: {profileAge}");
+        output.Add($"Favorite Number: {favoriteNumber}");
+        output.Add($"Likes Pizza: {likesPizza}");
+        output.Add("");
+        output.Add($"Hi {profileName}! Your favorite number times your age is {favoriteNumber * profileAge}!");
+        
+        if (likesPizza)
+        {
+            output.Add("🍕 You have great taste in food!");
+        }
+        else
+        {
+            output.Add("🥗 You must prefer other foods!");
+        }
+    }
+
+    private void RunCalculator()
+    {
+        output.Clear();
+        output.Add("=== Simple Calculator ===");
+        output.Add($"Number A: {calcA}");
+        output.Add($"Number B: {calcB}");
+        output.Add($"Operation: {operation}");
+        output.Add("");
+        
+        double result = operation switch
+        {
+            "+" => calcA + calcB,
+            "-" => calcA - calcB,
+            "*" => calcA * calcB,
+            "/" => calcB != 0 ? calcA / calcB : double.NaN,
+            _ => 0
+        };
+        
+        if (operation == "/" && calcB == 0)
+        {
+            output.Add("Error: Cannot divide by zero!");
+        }
+        else
+        {
+            output.Add($"Result: {calcA} {operation} {calcB} = {result}");
+        }
+    }
+
+    private void ClearOutput()
+    {
+        output.Clear();
+    }
+}
