@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "CSharpTutorial",
   "resources": {
-    "hash": "sha256-SDHCcQinC28xcZPp4DweGr8W/saKf1tLEEXatafU2qI=",
+    "hash": "sha256-egyeKRH9zJMSWgQ7pEDkAJLt8G5h6mSFG/2a9M50NSk=",
     "jsModuleNative": {
       "dotnet.native.8.0.19.ihm50f0zha.js": "sha256-O/NCYcAN9uPocD7ns7AzF/cqx7f5vL1PTJCQs0vEXyk="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "CSharpTutorial.wasm": "sha256-xXbN5gAY4CrgyJSG5mRaF5HdgRUDQSkjxz1TrSzbp7c=",
+      "CSharpTutorial.wasm": "sha256-Lfy/c/Gp+1i4qaIXp6vLA+xnxpTdkl8I3jhAD4GrE3k=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-t9pE1G2jwkJT/FlKnQoOTwFf5bTCbyRAl0DuMCIeNKQ=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-NmHyjsAvHM+VwCbDkTQ24yN0t7XIR605k3yaImB8r28=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-tPvydij70PmSyMABKtcxAvjtbnPGTDqzWoSoCvqhBHU=",
