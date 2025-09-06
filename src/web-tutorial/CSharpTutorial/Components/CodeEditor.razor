@@ -20,6 +20,13 @@
         </div>
         <div class="card-body p-0">
             <div id="@editorId" style="height: @Height; width: 100%;"></div>
+            @if (output.Any(o => o.Contains("Error loading code editor")))
+            {
+                <div class="p-3">
+                    <textarea class="form-control" style="height: @Height; font-family: 'Consolas', 'Monaco', monospace;" 
+                              @bind="fallbackCode" placeholder="Code editor failed to load. You can still view the code here.">@InitialCode</textarea>
+                </div>
+            }
         </div>
     </div>
     
@@ -60,13 +67,24 @@
     private List<string> output = new();
     private bool isRunning = false;
     private string originalCode = "";
+    private string fallbackCode = "";
     
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             originalCode = InitialCode;
-            await JSRuntime.InvokeVoidAsync("codeEditor.initializeEditor", editorId, InitialCode, ReadOnly);
+            fallbackCode = InitialCode;
+            try
+            {
+                await JSRuntime.InvokeVoidAsync("codeEditor.initializeEditor", editorId, InitialCode, ReadOnly);
+            }
+            catch (Exception ex)
+            {
+                output.Add($"Error loading code editor: {ex.Message}");
+                output.Add("Please refresh the page or check your internet connection.");
+                StateHasChanged();
+            }
         }
     }
     
