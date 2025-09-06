@@ -1,0 +1,374 @@
+@page "/lesson4"
+@using CSharpTutorial.Components
+
+<PageTitle>Lesson 4: Arrays and Data Structures</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>🔢 Lesson 4: Arrays and Data Structures</h1>
+            <p class="lead">Master arrays and fundamental algorithms - essential building blocks for OCR A-Level Computer Science.</p>
+            <div class="alert alert-primary">
+                <strong>OCR Specification Links:</strong> Data structures (1.4.2), Standard algorithms (2.3.1), Algorithm efficiency
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h3>📖 What is an Array?</h3>
+            <p>An array is like a row of boxes, each holding one piece of data. Think of it like lockers in school - each locker has a number (index) and can store one item.</p>
+            
+            <div class="alert alert-info">
+                <h5>🏛️ Historical Context</h5>
+                <p><strong>Arrays were invented in the 1940s</strong> for early computers like ENIAC. Back then, computer memory was VERY expensive and limited! Arrays let programmers store lots of related data efficiently in one block.</p>
+                <p><strong>Why start at index 0?</strong> In the 1960s, computer scientists realized that starting at 0 made the math much simpler for computers. This became the standard and most programming languages copied this approach.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>📝 Interactive Array Creation</h3>
+            <p>Let's create arrays step by step and see how they work!</p>
+            
+            <CodeEditor Title="Array Basics - Creating and Filling Arrays" 
+                       InitialCode="@arrayBasicsCode" 
+                       Height="400px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🔍 Finding Information in Arrays</h3>
+            <p>Now let's learn how to analyze data in arrays - finding the highest, lowest, and average values.</p>
+            
+            <CodeEditor Title="Array Analysis - Max, Min, Average" 
+                       InitialCode="@arrayAnalysisCode" 
+                       Height="450px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🔎 Linear Search Algorithm</h3>
+            <div class="alert alert-warning">
+                <h6>📚 Historical Context - Linear Search</h6>
+                <p>This is humanity's oldest search method! Ancient librarians used it to find scrolls - start at one end, check each scroll until found. It's simple but can be slow for large collections.</p>
+            </div>
+            
+            <CodeEditor Title="Linear Search - Finding Specific Values" 
+                       InitialCode="@linearSearchCode" 
+                       Height="400px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🫧 Bubble Sort Algorithm</h3>
+            <div class="alert alert-warning">
+                <h6>🫧 Why "Bubble" Sort?</h6>
+                <p>Invented in 1956, it's called "bubble" because small numbers "bubble up" to the top of the list, just like air bubbles rise in water! It's not the fastest method, but it's easy to understand.</p>
+            </div>
+            
+            <CodeEditor Title="Bubble Sort - Organizing Data" 
+                       InitialCode="@bubbleSortCode" 
+                       Height="450px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>📊 2D Arrays (Matrices)</h3>
+            <div class="alert alert-info">
+                <h6>🧮 Historical Context - Matrices</h6>
+                <p>The concept comes from mathematics - matrices were invented in the 1850s by Arthur Cayley. Early computers in the 1940s used 2D arrays to store these mathematical matrices. Today we use them for images, game boards, spreadsheets!</p>
+            </div>
+            
+            <CodeEditor Title="2D Arrays - Grids and Tables" 
+                       InitialCode="@twoDArrayCode" 
+                       Height="350px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🎯 Key Learning Points</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">✅ Arrays store multiple values of the same type</li>
+                        <li class="list-group-item">✅ Array indices start at 0 and go to Length-1</li>
+                        <li class="list-group-item">✅ Linear search checks each element sequentially</li>
+                        <li class="list-group-item">✅ Bubble sort compares adjacent elements</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">✅ 2D arrays are useful for matrices and tables</li>
+                        <li class="list-group-item">✅ Always validate array bounds to avoid errors</li>
+                        <li class="list-group-item">✅ Algorithm efficiency matters for large datasets</li>
+                        <li class="list-group-item">✅ Understanding internals helps with OCR exams</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <a href="lesson3" class="btn btn-outline-secondary">← Lesson 3: Control Flow</a>
+                <a href="lesson5" class="btn btn-primary">Next: Collections →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string arrayBasicsCode = @"using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""📦 Creating Arrays - Three Different Ways"");
+        Console.WriteLine(""==========================================\n"");
+
+        // Method 1: Create empty array then fill it
+        Console.WriteLine(""Method 1: Create empty array, then fill it"");
+        int[] numbers = new int[5]; // 5 empty boxes for numbers
+        
+        numbers[0] = 10;  // Put 10 in first box (index 0)
+        numbers[1] = 20;  // Put 20 in second box (index 1)
+        numbers[2] = 30;  // Put 30 in third box (index 2)
+        numbers[3] = 40;  // Put 40 in fourth box (index 3)
+        numbers[4] = 50;  // Put 50 in fifth box (index 4)
+        
+        Console.WriteLine(""Numbers array:"");
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.WriteLine($""  Box {i}: {numbers[i]}"");
+        }
+
+        // Method 2: Create and fill at the same time
+        Console.WriteLine(""\nMethod 2: Create and fill together"");
+        string[] subjects = { ""Computer Science"", ""Mathematics"", ""Physics"" };
+        
+        Console.WriteLine(""Subjects array:"");
+        for (int i = 0; i < subjects.Length; i++)
+        {
+            Console.WriteLine($""  Box {i}: {subjects[i]}"");
+        }
+
+        // Try editing: Add your own array here!
+        // double[] grades = { 85.5, 92.0, 78.5 };
+    }
+}";
+
+    private string arrayAnalysisCode = @"using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""📊 Analyzing Test Scores"");
+        Console.WriteLine(""========================\n"");
+
+        int[] testScores = { 85, 92, 78, 96, 88, 74, 91, 83, 89, 95 };
+        Console.WriteLine($""Test Scores: [{string.Join("", "", testScores)}]\n"");
+
+        // Find HIGHEST score
+        Console.WriteLine(""🔍 Finding the HIGHEST score:"");
+        int max = testScores[0];  // Start with first score
+        Console.WriteLine($""Starting with: {max}"");
+        
+        for (int i = 1; i < testScores.Length; i++)
+        {
+            if (testScores[i] > max)
+            {
+                Console.WriteLine($""Found higher: {testScores[i]} > {max}"");
+                max = testScores[i];
+            }
+        }
+        Console.WriteLine($""✅ Highest score: {max}\n"");
+
+        // Find LOWEST score
+        Console.WriteLine(""🔍 Finding the LOWEST score:"");
+        int min = testScores[0];
+        for (int i = 1; i < testScores.Length; i++)
+        {
+            if (testScores[i] < min)
+            {
+                min = testScores[i];
+            }
+        }
+        Console.WriteLine($""✅ Lowest score: {min}\n"");
+
+        // Calculate AVERAGE
+        Console.WriteLine(""🔍 Calculating AVERAGE:"");
+        int sum = 0;
+        for (int i = 0; i < testScores.Length; i++)
+        {
+            sum += testScores[i];
+        }
+        double average = (double)sum / testScores.Length;
+        Console.WriteLine($""Total: {sum}, Count: {testScores.Length}"");
+        Console.WriteLine($""✅ Average: {average:F2}%"");
+    }
+}";
+
+    private string linearSearchCode = @"using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""🔎 Linear Search Algorithm"");
+        Console.WriteLine(""==========================\n"");
+
+        int[] scores = { 85, 92, 78, 96, 88, 74, 91, 83, 89, 95 };
+        Console.WriteLine($""Array: [{string.Join("", "", scores)}]\n"");
+
+        // Let's search for the score 88
+        int target = 88;
+        Console.WriteLine($""Looking for: {target}"");
+        Console.WriteLine(""Strategy: Check each item one by one\n"");
+
+        // Linear search algorithm
+        int position = -1;
+        for (int i = 0; i < scores.Length; i++)
+        {
+            Console.WriteLine($""Step {i + 1}: Checking position {i} → {scores[i]}"");
+            
+            if (scores[i] == target)
+            {
+                Console.WriteLine($""✅ FOUND! {target} is at position {i}"");
+                position = i;
+                break;
+            }
+            else
+            {
+                Console.WriteLine($""❌ {scores[i]} ≠ {target}, keep looking..."");
+            }
+        }
+
+        if (position == -1)
+        {
+            Console.WriteLine($""❌ {target} not found in array"");
+        }
+
+        // Try changing 'target' to search for different numbers!
+        // What happens if you search for 100?
+    }
+}";
+
+    private string bubbleSortCode = @"using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""🫧 Bubble Sort Algorithm"");
+        Console.WriteLine(""========================\n"");
+
+        int[] numbers = { 64, 34, 25, 12, 22, 11, 90 };
+        Console.WriteLine($""Original: [{string.Join("", "", numbers)}]"");
+        Console.WriteLine(""Strategy: Compare neighbors, swap if left > right\n"");
+
+        // Bubble Sort Algorithm
+        int n = numbers.Length;
+        
+        for (int i = 0; i < n - 1; i++)
+        {
+            Console.WriteLine($""🔄 Pass {i + 1}:"");
+            bool swapped = false;
+            
+            for (int j = 0; j < n - i - 1; j++)
+            {
+                Console.WriteLine($""  Comparing {numbers[j]} and {numbers[j + 1]}"");
+                
+                if (numbers[j] > numbers[j + 1])
+                {
+                    // Swap the elements
+                    Console.WriteLine($""  → Swap! {numbers[j]} > {numbers[j + 1]}"");
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+                    swapped = true;
+                }
+                else
+                {
+                    Console.WriteLine($""  → No swap needed"");
+                }
+            }
+            
+            Console.WriteLine($""  After pass {i + 1}: [{string.Join("", "", numbers)}]"");
+            Console.WriteLine($""  (Largest number {numbers[n - 1 - i]} bubbled to position!)\n"");
+            
+            if (!swapped)
+            {
+                Console.WriteLine(""🎉 No swaps needed - array is sorted!"");
+                break;
+            }
+        }
+
+        Console.WriteLine($""✅ Final sorted array: [{string.Join("", "", numbers)}]"");
+    }
+}";
+
+    private string twoDArrayCode = @"using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""📊 2D Arrays (Matrices)"");
+        Console.WriteLine(""=======================\n"");
+
+        // Create a 3x3 multiplication table
+        int[,] table = new int[3, 3];
+        
+        Console.WriteLine(""Creating 3×3 multiplication table:"");
+        Console.WriteLine(""Position accessed as: table[row, column]\n"");
+        
+        // Fill the table
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                table[row, col] = (row + 1) * (col + 1);
+                Console.WriteLine($""table[{row}, {col}] = {row + 1} × {col + 1} = {table[row, col]}"");
+            }
+        }
+        
+        Console.WriteLine(""\n📋 Final multiplication table:"");
+        Console.WriteLine(""   1  2  3"");
+        Console.WriteLine(""  -------"");
+        
+        for (int row = 0; row < 3; row++)
+        {
+            Console.Write($""{row + 1}|"");
+            for (int col = 0; col < 3; col++)
+            {
+                Console.Write($""{table[row, col],3}"");
+            }
+            Console.WriteLine();
+        }
+
+        // Try creating your own 2D array!
+        // Maybe a tic-tac-toe board or grade table?
+    }
+}";
+
+    private void OnCodeChanged(string code)
+    {
+        // Handle code changes if needed
+        // This could be used for analytics or saving progress
+    }
+}

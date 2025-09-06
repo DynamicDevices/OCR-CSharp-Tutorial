@@ -1,0 +1,451 @@
+@page "/lesson5"
+@using CSharpTutorial.Components
+
+<PageTitle>Lesson 5: Collections and Advanced Data Structures</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>📚 Lesson 5: Collections and Advanced Data Structures</h1>
+            <p class="lead">Master dynamic collections that can grow and shrink - essential for real-world programming!</p>
+            <div class="alert alert-primary">
+                <strong>OCR Specification Links:</strong> Advanced data structures (1.4.2), Generic collections, Algorithm efficiency
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-info">
+                <h5>🏛️ Why Collections Were Invented</h5>
+                <p><strong>The Problem (1950s-60s):</strong> Arrays had fixed sizes. If you needed more space, tough luck! You had to rewrite your program.</p>
+                <p><strong>The Solution:</strong> Collections were invented to solve this - they can grow and shrink automatically! Different collections solve different problems that programmers face.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>📋 List&lt;T&gt; - Dynamic Arrays</h3>
+            <p><strong>Problem:</strong> Arrays have fixed size. What if we don't know how many items we'll have?</p>
+            <p><strong>Solution:</strong> List&lt;T&gt; - invented in the 1970s, it's an array that can resize itself!</p>
+            
+            <CodeEditor Title="List<T> - Dynamic Collections" 
+                       InitialCode="@listExampleCode" 
+                       Height="450px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🥞 Stack&lt;T&gt; - Last In, First Out (LIFO)</h3>
+            <div class="alert alert-warning">
+                <h6>🥞 Real-World Origin</h6>
+                <p><strong>Think of a stack of plates in a cafeteria!</strong> You can only add/remove plates from the top. Last plate in, first out. Invented in 1946 for computer memory management - still used today for undo operations and browser back buttons!</p>
+            </div>
+            
+            <CodeEditor Title="Stack<T> - LIFO Operations" 
+                       InitialCode="@stackExampleCode" 
+                       Height="400px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🚶‍♀️ Queue&lt;T&gt; - First In, First Out (FIFO)</h3>
+            <div class="alert alert-warning">
+                <h6>🚶‍♀️ Real-World Origin</h6>
+                <p><strong>Like a queue (line) at a shop!</strong> First person in line gets served first. Fair and orderly. Invented in 1959 for job scheduling in early computers. Perfect for print queues and task scheduling!</p>
+            </div>
+            
+            <CodeEditor Title="Queue<T> - FIFO Operations" 
+                       InitialCode="@queueExampleCode" 
+                       Height="400px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>📖 Dictionary&lt;TKey, TValue&gt; - Key-Value Pairs</h3>
+            <div class="alert alert-info">
+                <h6>📖 Real-World Origin</h6>
+                <p><strong>Like a real dictionary or phone book!</strong> You look up a word (key) to find its meaning (value). Invented in 1953 using "hash tables" for super-fast lookups. Perfect for databases and caches!</p>
+            </div>
+            
+            <CodeEditor Title="Dictionary<TKey,TValue> - Fast Lookups" 
+                       InitialCode="@dictionaryExampleCode" 
+                       Height="450px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🔍 HashSet&lt;T&gt; - Unique Elements</h3>
+            <div class="alert alert-success">
+                <h6>🔍 Mathematical Origin</h6>
+                <p><strong>Based on "set theory" from mathematics!</strong> A set can only contain unique items - no duplicates allowed. Invented in the 1960s using hash tables for super-fast duplicate detection.</p>
+            </div>
+            
+            <CodeEditor Title="HashSet<T> - Automatic Uniqueness" 
+                       InitialCode="@hashSetExampleCode" 
+                       Height="350px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>📊 Collection Comparison</h3>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Collection</th>
+                            <th>Access Time</th>
+                            <th>Insert Time</th>
+                            <th>Best Use Case</th>
+                            <th>Real-World Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Array</strong></td>
+                            <td>O(1)</td>
+                            <td>O(n)</td>
+                            <td>Fixed-size collections</td>
+                            <td>Monthly temperatures</td>
+                        </tr>
+                        <tr>
+                            <td><strong>List&lt;T&gt;</strong></td>
+                            <td>O(1)</td>
+                            <td>O(1)*</td>
+                            <td>Dynamic collections</td>
+                            <td>Shopping cart items</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stack&lt;T&gt;</strong></td>
+                            <td>O(1) top</td>
+                            <td>O(1)</td>
+                            <td>Undo operations</td>
+                            <td>Browser back button</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Queue&lt;T&gt;</strong></td>
+                            <td>O(1) front</td>
+                            <td>O(1)</td>
+                            <td>Task scheduling</td>
+                            <td>Print job queue</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dictionary&lt;K,V&gt;</strong></td>
+                            <td>O(1)*</td>
+                            <td>O(1)*</td>
+                            <td>Fast key lookup</td>
+                            <td>Phone book</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HashSet&lt;T&gt;</strong></td>
+                            <td>O(1)*</td>
+                            <td>O(1)*</td>
+                            <td>Unique elements</td>
+                            <td>Unique visitor IDs</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <small class="text-muted">* Average case - may degrade in worst case</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🎯 Key Learning Points</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">✅ List&lt;T&gt; provides dynamic arrays with automatic resizing</li>
+                        <li class="list-group-item">✅ Stack&lt;T&gt; follows LIFO - useful for undo operations</li>
+                        <li class="list-group-item">✅ Queue&lt;T&gt; follows FIFO - useful for task scheduling</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">✅ Dictionary provides fast O(1) key-based lookups</li>
+                        <li class="list-group-item">✅ HashSet automatically maintains unique elements</li>
+                        <li class="list-group-item">✅ Choose the right collection for your specific problem</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <a href="lesson4" class="btn btn-outline-secondary">← Lesson 4: Arrays</a>
+                <a href="lesson6" class="btn btn-primary">Next: OOP Basics →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string listExampleCode = @"using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""📋 List<T> - Dynamic Arrays"");
+        Console.WriteLine(""===========================\n"");
+
+        // Create an empty list
+        List<string> students = new List<string>();
+        Console.WriteLine($""Initial size: {students.Count}"");
+
+        // Add elements (list grows automatically!)
+        students.Add(""Alice"");
+        students.Add(""Bob"");
+        students.Add(""Charlie"");
+        Console.WriteLine($""After adding 3 students: {students.Count}"");
+
+        // Add multiple elements at once
+        students.AddRange(new string[] { ""Diana"", ""Eve"" });
+        Console.WriteLine($""After adding 2 more: {students.Count}"");
+
+        // Display all students
+        Console.WriteLine(""\nAll students:"");
+        for (int i = 0; i < students.Count; i++)
+        {
+            Console.WriteLine($""  {i + 1}. {students[i]}"");
+        }
+
+        // Insert at specific position
+        students.Insert(1, ""Zoe"");
+        Console.WriteLine($""\nAfter inserting Zoe at position 1:"");
+        foreach (string student in students)
+        {
+            Console.Write($""{student} "");
+        }
+        Console.WriteLine();
+
+        // Remove elements
+        students.Remove(""Bob"");
+        Console.WriteLine($""\nAfter removing Bob: {students.Count} students"");
+
+        // Try adding your own students!
+        // students.Add(""Your Name"");
+    }
+}";
+
+    private string stackExampleCode = @"using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""🥞 Stack<T> - Browser History Simulation"");
+        Console.WriteLine(""========================================\n"");
+
+        Stack<string> browserHistory = new Stack<string>();
+
+        // Push pages onto the stack (like visiting websites)
+        Console.WriteLine(""📱 Visiting websites (Push operations):"");
+        browserHistory.Push(""google.com"");
+        Console.WriteLine($""Visited: google.com (Stack size: {browserHistory.Count})"");
+        
+        browserHistory.Push(""github.com"");
+        Console.WriteLine($""Visited: github.com (Stack size: {browserHistory.Count})"");
+        
+        browserHistory.Push(""stackoverflow.com"");
+        Console.WriteLine($""Visited: stackoverflow.com (Stack size: {browserHistory.Count})"");
+
+        // Peek at current page (top of stack)
+        Console.WriteLine($""\n📄 Current page: {browserHistory.Peek()}"");
+
+        // Go back (Pop operations) - Last In, First Out!
+        Console.WriteLine(""\n⬅️ Clicking back button (Pop operations):"");
+        while (browserHistory.Count > 0)
+        {
+            string currentPage = browserHistory.Pop();
+            Console.WriteLine($""Going back from: {currentPage}"");
+            
+            if (browserHistory.Count > 0)
+            {
+                Console.WriteLine($""Now on: {browserHistory.Peek()}"");
+            }
+            else
+            {
+                Console.WriteLine(""No more pages in history"");
+            }
+        }
+
+        // Try adding more websites to visit!
+    }
+}";
+
+    private string queueExampleCode = @"using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""🚶‍♀️ Queue<T> - Print Job Simulation"");
+        Console.WriteLine(""===================================\n"");
+
+        Queue<string> printQueue = new Queue<string>();
+
+        // Enqueue print jobs (join the back of the queue)
+        Console.WriteLine(""📄 Adding print jobs (Enqueue):"");
+        printQueue.Enqueue(""Document1.pdf"");
+        Console.WriteLine($""Added: Document1.pdf (Queue size: {printQueue.Count})"");
+        
+        printQueue.Enqueue(""Photo.jpg"");
+        Console.WriteLine($""Added: Photo.jpg (Queue size: {printQueue.Count})"");
+        
+        printQueue.Enqueue(""Report.docx"");
+        Console.WriteLine($""Added: Report.docx (Queue size: {printQueue.Count})"");
+
+        // Peek at next job (front of queue)
+        Console.WriteLine($""\n👀 Next job to print: {printQueue.Peek()}"");
+
+        // Process print jobs (Dequeue) - First In, First Out!
+        Console.WriteLine(""\n🖨️ Processing print jobs (Dequeue):"");
+        while (printQueue.Count > 0)
+        {
+            string job = printQueue.Dequeue();
+            Console.WriteLine($""Printing: {job}"");
+            
+            if (printQueue.Count > 0)
+            {
+                Console.WriteLine($""Next in queue: {printQueue.Peek()}"");
+            }
+            else
+            {
+                Console.WriteLine(""All jobs completed!"");
+            }
+        }
+
+        // Try adding more print jobs!
+    }
+}";
+
+    private string dictionaryExampleCode = @"using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""📖 Dictionary<TKey,TValue> - Student Grades"");
+        Console.WriteLine(""==========================================\n"");
+
+        // Create a dictionary (like a phone book)
+        Dictionary<string, int> studentGrades = new Dictionary<string, int>();
+
+        // Add key-value pairs
+        studentGrades.Add(""Alice"", 95);
+        studentGrades.Add(""Bob"", 87);
+        studentGrades.Add(""Charlie"", 92);
+        studentGrades[""Diana""] = 88;  // Alternative syntax
+        studentGrades[""Eve""] = 91;
+
+        Console.WriteLine(""📊 Student Grades:"");
+        foreach (KeyValuePair<string, int> student in studentGrades)
+        {
+            Console.WriteLine($""  {student.Key}: {student.Value}%"");
+        }
+
+        // Fast lookup by key (this is why dictionaries are powerful!)
+        Console.WriteLine(""\n🔍 Looking up specific students:"");
+        
+        string[] studentsToFind = { ""Alice"", ""Bob"", ""Frank"" };
+        
+        foreach (string name in studentsToFind)
+        {
+            if (studentGrades.ContainsKey(name))
+            {
+                Console.WriteLine($""✅ {name}: {studentGrades[name]}%"");
+            }
+            else
+            {
+                Console.WriteLine($""❌ {name}: Not found in grade book"");
+            }
+        }
+
+        // Update a grade
+        studentGrades[""Alice""] = 98;  // Alice improved!
+        Console.WriteLine($""\n📈 Alice's updated grade: {studentGrades[""Alice""]}%"");
+
+        // Try adding more students and grades!
+    }
+}";
+
+    private string hashSetExampleCode = @"using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""🔍 HashSet<T> - Unique Word Counter"");
+        Console.WriteLine(""==================================\n"");
+
+        HashSet<string> uniqueWords = new HashSet<string>();
+
+        string[] text = { ""the"", ""quick"", ""brown"", ""fox"", ""jumps"", 
+                         ""over"", ""the"", ""lazy"", ""dog"", ""the"" };
+
+        Console.WriteLine($""Original text: {string.Join("" "", text)}"");
+        Console.WriteLine($""Total words: {text.Length}\n"");
+
+        Console.WriteLine(""Adding words to HashSet (duplicates ignored):"");
+        foreach (string word in text)
+        {
+            bool wasAdded = uniqueWords.Add(word);
+            if (wasAdded)
+            {
+                Console.WriteLine($""✅ Added: '{word}'"");
+            }
+            else
+            {
+                Console.WriteLine($""❌ Duplicate ignored: '{word}'"");
+            }
+        }
+
+        Console.WriteLine($""\n📊 Results:"");
+        Console.WriteLine($""Unique words: {string.Join("", "", uniqueWords)}"");
+        Console.WriteLine($""Total unique words: {uniqueWords.Count}"");
+        Console.WriteLine($""Duplicates removed: {text.Length - uniqueWords.Count}"");
+
+        // Check if specific words exist
+        Console.WriteLine(""\n🔍 Word existence check:"");
+        string[] wordsToCheck = { ""fox"", ""cat"", ""dog"" };
+        
+        foreach (string word in wordsToCheck)
+        {
+            if (uniqueWords.Contains(word))
+            {
+                Console.WriteLine($""✅ '{word}' is in the set"");
+            }
+            else
+            {
+                Console.WriteLine($""❌ '{word}' is not in the set"");
+            }
+        }
+    }
+}";
+
+    private void OnCodeChanged(string code)
+    {
+        // Handle code changes if needed
+        // This could be used for analytics or saving progress
+    }
+}

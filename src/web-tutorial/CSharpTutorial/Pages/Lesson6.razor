@@ -1,0 +1,559 @@
+@page "/lesson6"
+@using CSharpTutorial.Components
+
+<PageTitle>Lesson 6: Object-Oriented Programming Basics</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>🏗️ Lesson 6: Object-Oriented Programming Basics</h1>
+            <p class="lead">Learn to create classes and objects - the foundation of modern programming!</p>
+            <div class="alert alert-primary">
+                <strong>OCR Specification Links:</strong> Object-oriented programming (2.2.1), Classes and objects, Encapsulation
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-info">
+                <h5>🏛️ Why Object-Oriented Programming?</h5>
+                <p><strong>The Problem (1960s):</strong> Programs were becoming huge and unmanageable. Code was scattered everywhere!</p>
+                <p><strong>The Solution (1970s):</strong> OOP was invented to organize code like the real world - using objects with properties and behaviors. This made programs easier to understand, maintain, and reuse.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>👤 Your First Class - Student</h3>
+            <p>A class is like a blueprint. An object is like a house built from that blueprint. Let's create a Student class!</p>
+            
+            <CodeEditor Title="Creating Your First Class" 
+                       InitialCode="@studentClassCode" 
+                       Height="500px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🏦 Encapsulation - Bank Account Example</h3>
+            <p><strong>Encapsulation</strong> means hiding internal details and providing controlled access. Like a real bank account - you can't directly access the money, you must use deposit/withdraw methods!</p>
+            
+            <CodeEditor Title="Encapsulation with Bank Account" 
+                       InitialCode="@bankAccountCode" 
+                       Height="550px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🚗 Properties and Methods - Car Class</h3>
+            <p>Properties store data (like car color), Methods perform actions (like starting the engine). Let's build a Car class!</p>
+            
+            <CodeEditor Title="Properties and Methods" 
+                       InitialCode="@carClassCode" 
+                       Height="500px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>📊 Static vs Instance Members</h3>
+            <div class="alert alert-warning">
+                <h6>🤔 Static vs Instance - What's the Difference?</h6>
+                <p><strong>Instance members:</strong> Belong to individual objects (each student has their own name)</p>
+                <p><strong>Static members:</strong> Belong to the class itself (total count of all students)</p>
+            </div>
+            
+            <CodeEditor Title="Static vs Instance Members" 
+                       InitialCode="@staticExampleCode" 
+                       Height="450px" 
+                       OnCodeChanged="OnCodeChanged" />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>🎯 Key OOP Concepts</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header"><strong>Classes & Objects</strong></div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li>✅ <strong>Class:</strong> Blueprint/template</li>
+                                <li>✅ <strong>Object:</strong> Instance of a class</li>
+                                <li>✅ <strong>Constructor:</strong> Initializes objects</li>
+                                <li>✅ <strong>Fields:</strong> Store data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header"><strong>Encapsulation</strong></div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li>✅ <strong>Private fields:</strong> Hide internal data</li>
+                                <li>✅ <strong>Public properties:</strong> Controlled access</li>
+                                <li>✅ <strong>Methods:</strong> Define behaviors</li>
+                                <li>✅ <strong>Validation:</strong> Ensure data integrity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>📋 Real-World Applications</h3>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Real-World Entity</th>
+                            <th>Class Properties</th>
+                            <th>Class Methods</th>
+                            <th>Why OOP Helps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Student</strong></td>
+                            <td>Name, Age, ID, Grades</td>
+                            <td>AddGrade(), GetAverage()</td>
+                            <td>Organizes student data and operations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bank Account</strong></td>
+                            <td>Balance, AccountNumber, Owner</td>
+                            <td>Deposit(), Withdraw(), GetBalance()</td>
+                            <td>Protects money with validation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Car</strong></td>
+                            <td>Make, Model, Speed, IsRunning</td>
+                            <td>Start(), Stop(), Accelerate()</td>
+                            <td>Models real car behavior</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Game Character</strong></td>
+                            <td>Health, Level, Position</td>
+                            <td>Move(), Attack(), Heal()</td>
+                            <td>Reusable for multiple characters</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <a href="lesson5" class="btn btn-outline-secondary">← Lesson 5: Collections</a>
+                <a href="lesson7" class="btn btn-primary">Next: Advanced OOP →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string studentClassCode = @"using System;
+using System.Collections.Generic;
+
+// Define a Student class (blueprint)
+public class Student
+{
+    // Private fields (encapsulation - hidden from outside)
+    private string name;
+    private int age;
+    private string studentId;
+    private List<int> grades;
+
+    // Constructor - runs when creating a new student
+    public Student(string name, int age, string studentId)
+    {
+        this.name = name;
+        this.age = age;
+        this.studentId = studentId;
+        this.grades = new List<int>();
+    }
+
+    // Properties - controlled access to private fields
+    public string Name 
+    { 
+        get { return name; } 
+        set { name = value; } 
+    }
+
+    public int Age 
+    { 
+        get { return age; } 
+        set { if (value >= 0) age = value; } // Validation!
+    }
+
+    public string StudentId 
+    { 
+        get { return studentId; } 
+    }
+
+    // Methods - what the student can do
+    public void AddGrade(int grade)
+    {
+        if (grade >= 0 && grade <= 100)
+        {
+            grades.Add(grade);
+            Console.WriteLine($""{name} received grade: {grade}"");
+        }
+        else
+        {
+            Console.WriteLine(""Invalid grade! Must be 0-100."");
+        }
+    }
+
+    public double GetAverage()
+    {
+        if (grades.Count == 0) return 0;
+        
+        int sum = 0;
+        foreach (int grade in grades)
+        {
+            sum += grade;
+        }
+        return (double)sum / grades.Count;
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine($""Student: {name}, Age: {age}, ID: {studentId}"");
+        Console.WriteLine($""Grades: {grades.Count}, Average: {GetAverage():F2}%"");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""👤 Creating Student Objects"");
+        Console.WriteLine(""===========================\n"");
+
+        // Create student objects (instances of the Student class)
+        Student alice = new Student(""Alice Johnson"", 16, ""CS001"");
+        Student bob = new Student(""Bob Smith"", 17, ""CS002"");
+
+        // Use the objects
+        alice.AddGrade(95);
+        alice.AddGrade(87);
+        alice.AddGrade(92);
+
+        bob.AddGrade(88);
+        bob.AddGrade(91);
+
+        Console.WriteLine(""\n📊 Student Information:"");
+        alice.DisplayInfo();
+        bob.DisplayInfo();
+
+        // Try creating your own student!
+        // Student yourStudent = new Student(""Your Name"", 16, ""CS003"");
+    }
+}";
+
+    private string bankAccountCode = @"using System;
+
+public class BankAccount
+{
+    // Private fields - cannot be accessed directly from outside
+    private string accountHolder;
+    private int accountNumber;
+    private double balance;
+
+    // Constructor
+    public BankAccount(string accountHolder, int accountNumber, double initialBalance)
+    {
+        this.accountHolder = accountHolder;
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance >= 0 ? initialBalance : 0; // Validation
+    }
+
+    // Properties - controlled access to private data
+    public string AccountHolder { get { return accountHolder; } }
+    public int AccountNumber { get { return accountNumber; } }
+    public double Balance { get { return balance; } } // Read-only!
+
+    // Methods with validation - safe operations
+    public bool Deposit(double amount)
+    {
+        if (amount > 0)
+        {
+            balance += amount;
+            Console.WriteLine($""💰 Deposited ${amount:F2}. New balance: ${balance:F2}"");
+            return true;
+        }
+        Console.WriteLine(""❌ Deposit amount must be positive!"");
+        return false;
+    }
+
+    public bool Withdraw(double amount)
+    {
+        if (amount <= 0)
+        {
+            Console.WriteLine(""❌ Withdrawal amount must be positive!"");
+            return false;
+        }
+        
+        if (amount > balance)
+        {
+            Console.WriteLine($""❌ Insufficient funds! Balance: ${balance:F2}"");
+            return false;
+        }
+
+        balance -= amount;
+        Console.WriteLine($""💸 Withdrew ${amount:F2}. New balance: ${balance:F2}"");
+        return true;
+    }
+
+    public void DisplayAccountInfo()
+    {
+        Console.WriteLine($""🏦 Account {accountNumber}: {accountHolder}, Balance: ${balance:F2}"");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""🏦 Bank Account Encapsulation Demo"");
+        Console.WriteLine(""=================================\n"");
+
+        // Create bank accounts
+        BankAccount alice = new BankAccount(""Alice Johnson"", 1001, 1000.00);
+        BankAccount bob = new BankAccount(""Bob Smith"", 1002, 500.00);
+
+        Console.WriteLine(""Initial accounts:"");
+        alice.DisplayAccountInfo();
+        bob.DisplayAccountInfo();
+
+        Console.WriteLine(""\n💳 Performing transactions:"");
+        
+        // Valid operations
+        alice.Deposit(250.00);
+        alice.Withdraw(100.00);
+        
+        // Invalid operations (encapsulation protects us!)
+        bob.Withdraw(600.00);  // Not enough money
+        bob.Deposit(-50.00);   // Negative amount
+
+        Console.WriteLine(""\n📊 Final balances:"");
+        alice.DisplayAccountInfo();
+        bob.DisplayAccountInfo();
+
+        // Note: We cannot do alice.balance = 1000000; 
+        // because balance is private! This protects the data.
+    }
+}";
+
+    private string carClassCode = @"using System;
+
+public class Car
+{
+    // Private fields
+    private string make;
+    private string model;
+    private int year;
+    private bool isRunning;
+    private int speed;
+
+    // Constructor
+    public Car(string make, string model, int year)
+    {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.isRunning = false;
+        this.speed = 0;
+    }
+
+    // Properties (get/set access to private fields)
+    public string Make { get { return make; } }
+    public string Model { get { return model; } }
+    public int Year { get { return year; } }
+    public bool IsRunning { get { return isRunning; } }
+    public int Speed { get { return speed; } }
+
+    // Methods (what the car can do)
+    public void StartEngine()
+    {
+        if (!isRunning)
+        {
+            isRunning = true;
+            Console.WriteLine($""🚗 {make} {model} engine started!"");
+        }
+        else
+        {
+            Console.WriteLine($""🚗 {make} {model} is already running!"");
+        }
+    }
+
+    public void StopEngine()
+    {
+        if (isRunning)
+        {
+            isRunning = false;
+            speed = 0;
+            Console.WriteLine($""🛑 {make} {model} engine stopped."");
+        }
+        else
+        {
+            Console.WriteLine($""🛑 {make} {model} is already stopped."");
+        }
+    }
+
+    public void Accelerate(int increase)
+    {
+        if (!isRunning)
+        {
+            Console.WriteLine(""❌ Cannot accelerate - engine is off!"");
+            return;
+        }
+
+        if (increase > 0 && speed + increase <= 120) // Speed limit!
+        {
+            speed += increase;
+            Console.WriteLine($""🏎️ Accelerated to {speed} mph"");
+        }
+        else
+        {
+            Console.WriteLine(""❌ Invalid acceleration or speed limit reached!"");
+        }
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine($""🚙 {year} {make} {model}"");
+        Console.WriteLine($""   Engine: {(isRunning ? ""Running"" : ""Stopped"")}, Speed: {speed} mph"");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""🚗 Car Class Demo"");
+        Console.WriteLine(""=================\n"");
+
+        // Create car objects
+        Car car1 = new Car(""Toyota"", ""Camry"", 2022);
+        Car car2 = new Car(""Honda"", ""Civic"", 2021);
+
+        Console.WriteLine(""🚙 Our cars:"");
+        car1.DisplayInfo();
+        car2.DisplayInfo();
+
+        Console.WriteLine(""\n🔑 Starting and driving car1:"");
+        car1.StartEngine();
+        car1.Accelerate(30);
+        car1.Accelerate(20);
+        car1.DisplayInfo();
+
+        Console.WriteLine(""\n🔑 Trying to drive car2 without starting:"");
+        car2.Accelerate(50); // This should fail!
+
+        Console.WriteLine(""\n🔑 Starting car2 properly:"");
+        car2.StartEngine();
+        car2.Accelerate(40);
+        car2.DisplayInfo();
+
+        Console.WriteLine(""\n🛑 Stopping engines:"");
+        car1.StopEngine();
+        car2.StopEngine();
+
+        // Try creating your own car!
+    }
+}";
+
+    private string staticExampleCode = @"using System;
+
+public class Student
+{
+    // Static field - belongs to the CLASS, not individual objects
+    public static int TotalStudents = 0;
+
+    // Instance fields - each object has its own copy
+    private string name;
+    private int age;
+
+    // Constructor
+    public Student(string name, int age)
+    {
+        this.name = name;
+        this.age = age;
+        TotalStudents++; // Increment the class-level counter
+    }
+
+    // Instance property - each student has their own name
+    public string Name { get { return name; } }
+
+    // Static method - belongs to the class
+    public static void ShowTotalStudents()
+    {
+        Console.WriteLine($""📊 Total students created: {TotalStudents}"");
+    }
+
+    // Instance method - operates on individual student
+    public void Introduce()
+    {
+        Console.WriteLine($""👋 Hi, I'm {name}, age {age}"");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(""📊 Static vs Instance Members"");
+        Console.WriteLine(""==============================\n"");
+
+        Console.WriteLine(""📈 Creating students and watching the counter:"");
+        
+        // Check initial count (using class name, not object)
+        Student.ShowTotalStudents();
+
+        // Create first student
+        Student alice = new Student(""Alice"", 16);
+        alice.Introduce(); // Instance method
+        Student.ShowTotalStudents(); // Static method
+
+        // Create second student
+        Student bob = new Student(""Bob"", 17);
+        bob.Introduce();
+        Student.ShowTotalStudents();
+
+        // Create third student
+        Student charlie = new Student(""Charlie"", 16);
+        charlie.Introduce();
+        Student.ShowTotalStudents();
+
+        Console.WriteLine(""\n🔍 Key Differences:"");
+        Console.WriteLine(""• Instance members: alice.Introduce() - each object has its own"");
+        Console.WriteLine(""• Static members: Student.ShowTotalStudents() - shared by all"");
+        
+        Console.WriteLine($""\n📊 Final count: {Student.TotalStudents} students"");
+        
+        // Note: We access static members through the CLASS name (Student.TotalStudents)
+        // We access instance members through OBJECT names (alice.Name)
+    }
+}";
+
+    private void OnCodeChanged(string code)
+    {
+        // Handle code changes if needed
+        // This could be used for analytics or saving progress
+    }
+}
