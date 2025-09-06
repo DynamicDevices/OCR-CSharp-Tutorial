@@ -4,9 +4,10 @@ window.codeEditor = {
     
     // Initialize Monaco Editor
     initializeEditor: function(containerId, initialCode, readOnly = false) {
-        return new Promise((resolve) => {
-            require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@0.44.0/min/vs' } });
-            require(['vs/editor/editor.main'], function () {
+        return new Promise((resolve, reject) => {
+            try {
+                require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@0.44.0/min/vs' } });
+                require(['vs/editor/editor.main'], function () {
                 const editor = monaco.editor.create(document.getElementById(containerId), {
                     value: initialCode,
                     language: 'csharp',
@@ -21,9 +22,16 @@ window.codeEditor = {
                     wordWrap: 'on'
                 });
                 
-                window.codeEditor.editors[containerId] = editor;
-                resolve(editor);
-            });
+                    window.codeEditor.editors[containerId] = editor;
+                    resolve(editor);
+                }, function(error) {
+                    console.error('Failed to load Monaco Editor:', error);
+                    reject(error);
+                });
+            } catch (error) {
+                console.error('Error initializing Monaco Editor:', error);
+                reject(error);
+            }
         });
     },
     

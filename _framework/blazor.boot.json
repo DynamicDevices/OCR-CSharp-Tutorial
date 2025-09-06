@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "CSharpTutorial",
   "resources": {
-    "hash": "sha256-Ea5MjAYYLu8pcedA726hMD7SbdaRZc0dmN/s73GpDww=",
+    "hash": "sha256-LZuxLwjFzCDAA/s0z2Dgj642hD2av6hFvMZx9gU2F10=",
     "jsModuleNative": {
       "dotnet.native.8.0.19.ihm50f0zha.js": "sha256-O/NCYcAN9uPocD7ns7AzF/cqx7f5vL1PTJCQs0vEXyk="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "CSharpTutorial.wasm": "sha256-zAjDU+KZqtz4f9rw79aDEVWyDa6aPEq5pnT2OwBHl7I=",
+      "CSharpTutorial.wasm": "sha256-XqxLLVAv6V5oneI/bGVk2Z5Vx0j1HHbFiLUZmq/HOCQ=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-KFrAl1EciPxAZJtOKJbBi0ySWfeq0/1ISBBlVUbXZ6E=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-NmHyjsAvHM+VwCbDkTQ24yN0t7XIR605k3yaImB8r28=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-tPvydij70PmSyMABKtcxAvjtbnPGTDqzWoSoCvqhBHU=",
@@ -37,7 +37,7 @@
       "System.ComponentModel.wasm": "sha256-4gSYPm96L8CT5pKE25MQFQR0tJyEQi2zi4BO8+YEzwk=",
       "System.Console.wasm": "sha256-XTHhCnPfMRVvwA5Fmg9P5bRXnj2aW9AuzOxclZXLJbY=",
       "System.Diagnostics.DiagnosticSource.wasm": "sha256-QLEtsknP4wccffHr6JbyrQ6phmzdzpgtTc2l47IYomg=",
-      "System.Linq.wasm": "sha256-FxFH/6dQp3NLoBPaseo0CnReJiequalbfz0/ZQKwPv0=",
+      "System.Linq.wasm": "sha256-wecdPv60pjUexu4xFnYzUqxr+n5apeALmymhMqaWr4I=",
       "System.Memory.wasm": "sha256-bURIbPto05tDGDr8ybTjg0IdJuQsmFLu5BerYcKDibM=",
       "System.Net.Http.Json.wasm": "sha256-Acf+1fVHi2oX3iKc0GyDGuEBmxJae1nwmUJLUS9yOdg=",
       "System.Net.Http.wasm": "sha256-XJLBFBJyTAfVRxOU4vj2KW3z93jbhGnxABAQ8HQaUbw=",
