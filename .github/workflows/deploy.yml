@@ -24,8 +24,11 @@ jobs:
     - name: Change base-tag in index.html from / to OCR-CSharp-Tutorial
       run: sed -i 's/<base href="\/" \/>/<base href="\/OCR-CSharp-Tutorial\/" \/>/g' release/wwwroot/index.html
       
-    - name: copy index.html to 404.html
-      run: cp release/wwwroot/index.html release/wwwroot/404.html
+    - name: Create 404.html for client-side routing
+      run: |
+        cp release/wwwroot/index.html release/wwwroot/404.html
+        # Add script to handle client-side routing
+        sed -i 's/<\/head>/<script type="text\/javascript">\/\/ Single Page Apps for GitHub Pages\n\/\/ https:\/\/github.com\/rafgraph\/spa-github-pages\n\/\/ Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License\n\/\/ ----------------------------------------------------------------------\n\/\/ This script checks to see if a redirect is present in the query string,\n\/\/ converts it back into the correct url and adds it to the\n\/\/ browser'\''s history using window.history.replaceState(...),\n\/\/ which won'\''t cause the browser to attempt to load the new url.\n\/\/ When the single page app is loaded further down in this file,\n\/\/ the correct url will be waiting in the browser'\''s history for\n\/\/ the single page app to route accordingly.\n(function(l) {\n  if (l.search[1] === '\''\/'\'' ) {\n    var decoded = l.search.slice(1).split('\''&'\'').map(function(s) {\n      return s.replace(\/~and~\/g, '\''&'\'')\n    }).join('\''?'\'')\n    window.history.replaceState(null, null,\n        l.pathname.slice(0, -1) + decoded + l.hash\n    )\n  }\n}(window.location))\n<\/script>\n<\/head>/' release/wwwroot/404.html
 
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
