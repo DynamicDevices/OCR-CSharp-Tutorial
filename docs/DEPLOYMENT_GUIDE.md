@@ -3,7 +3,7 @@
 ## 🚀 Quick Start for GitHub Pages Hosting
 
 ### Step 1: Repository Setup
-1. Create a new GitHub repository named `OCR-CSharp-Tutorial`
+1. Use the existing GitHub repository `OCR-CSharp-Tutorial` in the DynamicDevices organization
 2. Upload all files from this project to the repository
 3. Ensure the repository is public (required for free GitHub Pages)
 
@@ -18,7 +18,7 @@ The GitHub Actions workflow (`.github/workflows/deploy.yml`) will automatically:
 - Build the Blazor WebAssembly application
 - Configure it for GitHub Pages hosting
 - Deploy to the `gh-pages` branch
-- Make it available at: `https://yourusername.github.io/OCR-CSharp-Tutorial/`
+- Make it available at: `https://dynamicdevices.github.io/OCR-CSharp-Tutorial/`
 
 ### Step 4: First Deployment
 1. Push all files to the `main` branch
@@ -36,7 +36,7 @@ The GitHub Actions workflow (`.github/workflows/deploy.yml`) will automatically:
 ### Running Locally
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/OCR-CSharp-Tutorial.git
+git clone https://github.com/DynamicDevices/OCR-CSharp-Tutorial.git
 cd OCR-CSharp-Tutorial
 
 # Run the console examples

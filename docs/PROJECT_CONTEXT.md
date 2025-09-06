@@ -236,7 +236,8 @@ OCR-CSharp-Tutorial/
 
 ## 📞 Contact and Collaboration
 
-**Project Maintainer**: AI Assistant  
+**Project Maintainer**: Dynamic Devices Ltd  
+**Contact**: info@dynamicdevices.co.uk  
 **Educational Consultant**: OCR A-Level Computer Science Specification  
 **Target Institution**: Secondary schools teaching OCR A-Level CS  
 **Collaboration**: Open to teacher feedback and educational improvements  
@@ -246,4 +247,5 @@ OCR-CSharp-Tutorial/
 **Last Updated**: December 2024  
 **Version**: 1.0  
 **Status**: Active Development  
-**License**: Educational Use - OCR A-Level Computer Science
+**License**: Creative Commons Attribution-NonCommercial 4.0 International License  
+**Copyright**: © 2025 Dynamic Devices Ltd. All rights reserved.

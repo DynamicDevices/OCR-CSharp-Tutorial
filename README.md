@@ -2,15 +2,15 @@
 
 > Interactive C# programming tutorial specifically designed for OCR A-Level Computer Science students
 
-[![Deploy to GitHub Pages](https://github.com/yourusername/OCR-CSharp-Tutorial/actions/workflows/deploy.yml/badge.svg)](https://github.com/yourusername/OCR-CSharp-Tutorial/actions/workflows/deploy.yml)
+[![Deploy to GitHub Pages](https://github.com/DynamicDevices/OCR-CSharp-Tutorial/actions/workflows/deploy.yml/badge.svg)](https://github.com/DynamicDevices/OCR-CSharp-Tutorial/actions/workflows/deploy.yml)
 
 ## 🎯 Quick Start
 
-**🌐 Try the Interactive Web Version**: [Live Demo](https://yourusername.github.io/OCR-CSharp-Tutorial/)
+**🌐 Try the Interactive Web Version**: [Live Demo](https://dynamicdevices.github.io/OCR-CSharp-Tutorial/)
 
 **💻 Run Console Examples Locally**:
 ```bash
-git clone https://github.com/yourusername/OCR-CSharp-Tutorial.git
+git clone https://github.com/DynamicDevices/OCR-CSharp-Tutorial.git
 cd OCR-CSharp-Tutorial/src/console-tutorials/Lesson01-HelloWorld
 dotnet run
 ```
@@ -158,11 +158,17 @@ This is an educational resource designed for OCR A-Level Computer Science. Contr
 
 ## 📄 License
 
-Educational use - designed specifically for OCR A-Level Computer Science curriculum.
+This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
+
+Copyright © 2025 Dynamic Devices Ltd. All rights reserved.
+
+**Contact**: info@dynamicdevices.co.uk
+
+This educational resource is designed specifically for OCR A-Level Computer Science curriculum and may be used for non-commercial educational purposes.
 
 ## 🔗 Quick Links
 
-- 🌐 **[Live Web Tutorial](https://yourusername.github.io/OCR-CSharp-Tutorial/)**
+- 🌐 **[Live Web Tutorial](https://dynamicdevices.github.io/OCR-CSharp-Tutorial/)**
 - 📚 **[Console Lessons](src/console-tutorials/)**
 - 🎮 **[Practice Examples](examples/)**
 - 📖 **[Full Documentation](docs/)**

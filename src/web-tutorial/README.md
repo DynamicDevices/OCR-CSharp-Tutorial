@@ -4,7 +4,7 @@ Browser-based C# learning with no installation required - perfect for OCR A-Leve
 
 ## 🌐 Live Demo
 
-**Try it now**: [https://yourusername.github.io/OCR-CSharp-Tutorial/](https://yourusername.github.io/OCR-CSharp-Tutorial/)
+**Try it now**: [https://dynamicdevices.github.io/OCR-CSharp-Tutorial/](https://dynamicdevices.github.io/OCR-CSharp-Tutorial/)
 
 ## ✨ Features
 
@@ -93,7 +93,7 @@ Browser-based C# learning with no installation required - perfect for OCR A-Leve
 ## 🚀 Getting Started
 
 ### For Students
-1. Visit the [live tutorial](https://yourusername.github.io/OCR-CSharp-Tutorial/)
+1. Visit the [live tutorial](https://dynamicdevices.github.io/OCR-CSharp-Tutorial/)
 2. Start with Lesson 1: Program Structure
 3. Work through each lesson systematically
 4. Complete the interactive exercises
@@ -200,8 +200,14 @@ dotnet run
 
 ## 📄 License
 
-Educational use - specifically designed for OCR A-Level Computer Science curriculum.
+This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
+
+Copyright © 2025 Dynamic Devices Ltd. All rights reserved.
+
+**Contact**: info@dynamicdevices.co.uk
+
+This educational resource is designed specifically for OCR A-Level Computer Science curriculum and may be used for non-commercial educational purposes.
 
 ---
 
-**Ready to start learning?** Visit the [live tutorial](https://yourusername.github.io/OCR-CSharp-Tutorial/) and begin your C# programming journey! 🚀
+**Ready to start learning?** Visit the [live tutorial](https://dynamicdevices.github.io/OCR-CSharp-Tutorial/) and begin your C# programming journey! 🚀

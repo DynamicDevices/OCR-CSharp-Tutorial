@@ -20,8 +20,8 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish src/web-tutorial/CSharpTutorial/CSharpTutorial.csproj -c Release -o release --nologo
       
-    - name: Change base-tag in index.html from / to OCR-CSharp-Tutorial
-      run: sed -i 's/<base href="\/" \/>/<base href="\/OCR-CSharp-Tutorial\/" \/>/g' release/wwwroot/index.html
+    - name: Change base-tag in index.html from / to csharp-examples
+      run: sed -i 's/<base href="\/" \/>/<base href="\/csharp-examples\/" \/>/g' release/wwwroot/index.html
       
     - name: copy index.html to 404.html
       run: cp release/wwwroot/index.html release/wwwroot/404.html
