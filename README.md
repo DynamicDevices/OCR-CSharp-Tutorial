@@ -43,17 +43,27 @@ dotnet run
 | ✅ **Implemented** | Component 02 | Programming Fundamentals | Console + Web |
 | ✅ **Implemented** | Component 02 | Data Types & Variables | Console + Web |
 | ✅ **Implemented** | Component 02 | Selection & Iteration | Console + Web |
+| ✅ **Implemented** | Component 02 | Arrays & Collections | Console + Web |
+| ✅ **Implemented** | Component 02 | Object-Oriented Programming | Console + Web |
+| ✅ **Implemented** | Component 02 | Exception Handling | Console + Web |
+| ✅ **Implemented** | Component 02 | Binary Search Algorithm | Console |
+| ✅ **Implemented** | Component 02 | Advanced Sorting (Merge/Quick) | Console |
+| 🚧 **In Progress** | Component 02 | Recursion & File Handling | Console |
 | ✅ **Implemented** | Component 03 | Problem Solving Project | Console + Web |
 | 🚧 **Planned** | Component 01 | Computer Systems | [See Lesson Plan](docs/OCR_LESSON_PLAN.md) |
-| 🚧 **Planned** | Component 02 | Advanced Algorithms | [See Lesson Plan](docs/OCR_LESSON_PLAN.md) |
 | 🚧 **Planned** | Component 03 | Full NEA Project | [See Lesson Plan](docs/OCR_LESSON_PLAN.md) |
 
 ### Current Learning Objectives (Implemented)
 - ✅ Master C# program structure and syntax
 - ✅ Implement variables and data types correctly
 - ✅ Use selection and iteration constructs effectively
+- ✅ Work with arrays and advanced collections (List, Stack, Queue, Dictionary)
+- ✅ Apply object-oriented programming principles (classes, inheritance, polymorphism)
+- ✅ Implement exception handling and input validation
+- ✅ Understand and implement search algorithms (linear, binary)
+- ✅ Implement advanced sorting algorithms (bubble, merge, quick sort)
 - ✅ Apply problem-solving strategies algorithmically
-- ✅ Complete basic programming tasks
+- ✅ Complete programming assessment tasks
 
 ### Planned Learning Objectives ([Full Plan](docs/OCR_LESSON_PLAN.md))
 - 🚧 Understand computer systems architecture
