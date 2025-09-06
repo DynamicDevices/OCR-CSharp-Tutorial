@@ -36,20 +36,32 @@ dotnet run
 
 ## 🎓 OCR A-Level Alignment
 
-| Lesson | OCR Specification Topic | Console Version | Web Version |
-|--------|------------------------|-----------------|-------------|
-| **Lesson 1** | Programming Fundamentals | ✅ | ✅ |
-| **Lesson 2** | Data Types & Variables | ✅ | ✅ |
-| **Lesson 3** | Selection & Iteration | ✅ | ✅ |
-| **Assessment** | Problem Solving | ✅ | ✅ |
+**📋 Complete Specification Coverage**: See [Comprehensive Lesson Plan](docs/OCR_LESSON_PLAN.md) for full curriculum mapping.
 
-### Learning Objectives
+| Current Status | OCR Component | Topics Covered | Implementation |
+|----------------|---------------|----------------|----------------|
+| ✅ **Implemented** | Component 02 | Programming Fundamentals | Console + Web |
+| ✅ **Implemented** | Component 02 | Data Types & Variables | Console + Web |
+| ✅ **Implemented** | Component 02 | Selection & Iteration | Console + Web |
+| ✅ **Implemented** | Component 03 | Problem Solving Project | Console + Web |
+| 🚧 **Planned** | Component 01 | Computer Systems | [See Lesson Plan](docs/OCR_LESSON_PLAN.md) |
+| 🚧 **Planned** | Component 02 | Advanced Algorithms | [See Lesson Plan](docs/OCR_LESSON_PLAN.md) |
+| 🚧 **Planned** | Component 03 | Full NEA Project | [See Lesson Plan](docs/OCR_LESSON_PLAN.md) |
+
+### Current Learning Objectives (Implemented)
 - ✅ Master C# program structure and syntax
 - ✅ Implement variables and data types correctly
 - ✅ Use selection and iteration constructs effectively
 - ✅ Apply problem-solving strategies algorithmically
-- ✅ Analyze algorithm efficiency and complexity
-- ✅ Complete exam-style programming tasks
+- ✅ Complete basic programming tasks
+
+### Planned Learning Objectives ([Full Plan](docs/OCR_LESSON_PLAN.md))
+- 🚧 Understand computer systems architecture
+- 🚧 Implement advanced data structures (stacks, queues, trees)
+- 🚧 Analyze algorithm efficiency and complexity
+- 🚧 Apply computational thinking principles
+- 🚧 Complete comprehensive programming project (NEA)
+- 🚧 Address legal, moral, and ethical issues in computing
 
 ## 🚀 Getting Started
 
@@ -169,6 +181,7 @@ This educational resource is designed specifically for OCR A-Level Computer Scie
 ## 🔗 Quick Links
 
 - 🌐 **[Live Web Tutorial](https://dynamicdevices.github.io/OCR-CSharp-Tutorial/)**
+- 📋 **[Complete OCR Lesson Plan](docs/OCR_LESSON_PLAN.md)**
 - 📚 **[Console Lessons](src/console-tutorials/)**
 - 🎮 **[Practice Examples](examples/)**
 - 📖 **[Full Documentation](docs/)**

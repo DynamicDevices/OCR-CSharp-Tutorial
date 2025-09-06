@@ -1,4 +1,5 @@
 @page "/lesson1"
+@using CSharpTutorial.Components
 
 <PageTitle>Lesson 1: Hello World</PageTitle>
 
@@ -14,50 +15,14 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
-            <h3>📝 Program Structure Analysis</h3>
-            <p>Understanding program structure is fundamental to the OCR specification. Let's analyze each component:</p>
+        <div class="col-12">
+            <h3>📝 Interactive Code Editor</h3>
+            <p>Try editing and running this C# code! Understanding program structure is fundamental to the OCR specification.</p>
             
-            <div class="card">
-                <div class="card-header">
-                    <h5>Code Example</h5>
-                </div>
-                <div class="card-body">
-                    <pre><code>using System;
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello, World!");
-    }
-}</code></pre>
-                </div>
-            </div>
-
-            <div class="mt-3">
-                <button class="btn btn-success" @onclick="RunHelloWorld">▶️ Run Code</button>
-                <button class="btn btn-secondary ms-2" @onclick="ClearOutput">🗑️ Clear Output</button>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <h3>📺 Output</h3>
-            <div class="card">
-                <div class="card-body bg-dark text-light" style="min-height: 200px; font-family: monospace;">
-                    @if (output.Any())
-                    {
-                        @foreach (var line in output)
-                        {
-                            <div>@line</div>
-                        }
-                    }
-                    else
-                    {
-                        <div class="text-muted">Click "Run Code" to see the output...</div>
-                    }
-                </div>
-            </div>
+            <CodeEditor Title="Hello World Program" 
+                       InitialCode="@helloWorldCode" 
+                       Height="350px" 
+                       OnCodeChanged="OnCodeChanged" />
         </div>
     </div>
 
@@ -127,26 +92,26 @@ class Program
     <div class="row mt-4">
         <div class="col-12">
             <h3>🎮 Try It Yourself!</h3>
-            <div class="card">
+            
+            <div class="card mb-3">
                 <div class="card-body">
                     <h5>Exercise 1: Personal Greeting</h5>
-                    <p>Change the message to display your name instead of "Hello, World!"</p>
+                    <p>Edit the code below to display your own name instead of "Hello, World!"</p>
                     
-                    <div class="mb-3">
-                        <label class="form-label">Enter your name:</label>
-                        <input type="text" class="form-control" @bind="userName" placeholder="Your name here..." />
-                    </div>
-                    
-                    <button class="btn btn-primary" @onclick="RunPersonalGreeting">▶️ Run Personal Greeting</button>
+                    <CodeEditor Title="Personal Greeting Exercise" 
+                               InitialCode="@personalGreetingCode" 
+                               Height="250px" />
                 </div>
             </div>
 
-            <div class="card mt-3">
+            <div class="card">
                 <div class="card-body">
                     <h5>Exercise 2: Multiple Messages</h5>
-                    <p>Display multiple lines of text to tell a short story!</p>
+                    <p>Try adding more Console.WriteLine statements to tell a short story!</p>
                     
-                    <button class="btn btn-primary" @onclick="RunMultipleMessages">▶️ Run Story Example</button>
+                    <CodeEditor Title="Story Exercise" 
+                               InitialCode="@storyCode" 
+                               Height="300px" />
                 </div>
             </div>
         </div>
@@ -163,41 +128,53 @@ class Program
 </div>
 
 @code {
-    private List<string> output = new();
-    private string userName = "";
+    private string helloWorldCode = @"using System;
 
-    private void RunHelloWorld()
+class Program
+{
+    static void Main(string[] args)
     {
-        output.Clear();
-        output.Add("Hello, World!");
+        Console.WriteLine(""Hello, World!"");
+        
+        // Try editing this code!
+        // Add your own Console.WriteLine statements below:
+        
     }
+}";
 
-    private void RunPersonalGreeting()
+    private string personalGreetingCode = @"using System;
+
+class Program
+{
+    static void Main(string[] args)
     {
-        output.Clear();
-        if (string.IsNullOrWhiteSpace(userName))
-        {
-            output.Add("Please enter your name first!");
-        }
-        else
-        {
-            output.Add($"Hello, {userName}!");
-            output.Add($"Welcome to C# programming, {userName}!");
-        }
+        // Change ""World"" to your own name!
+        Console.WriteLine(""Hello, World!"");
+        
+        // You can also use variables:
+        string name = ""Your Name Here"";
+        Console.WriteLine(""Hello, "" + name + ""!"");
     }
+}";
 
-    private void RunMultipleMessages()
+    private string storyCode = @"using System;
+
+class Program
+{
+    static void Main(string[] args)
     {
-        output.Clear();
-        output.Add("Once upon a time...");
-        output.Add("There was a student learning C#.");
-        output.Add("They wrote their first program.");
-        output.Add("And it worked perfectly!");
-        output.Add("The end. 🎉");
+        Console.WriteLine(""Once upon a time..."");
+        Console.WriteLine(""There was a student learning C#."");
+        
+        // Add more lines to continue the story!
+        // Console.WriteLine(""They discovered that programming was..."");
+        // Console.WriteLine(""And they lived happily ever after!"");
     }
+}";
 
-    private void ClearOutput()
+    private void OnCodeChanged(string code)
     {
-        output.Clear();
+        // Handle code changes if needed
+        // This could be used for analytics or saving progress
     }
 }
