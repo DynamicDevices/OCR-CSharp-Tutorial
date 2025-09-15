@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 class Program
 {
@@ -9,7 +9,8 @@ class Program
         // Example 1: If/Else Statements
         Console.WriteLine("--- Age Verification ---");
         Console.Write("Enter your age: ");
-        int age = int.Parse(Console.ReadLine());
+        string ageInput = Console.ReadLine() ?? "0";
+        int age = int.Parse(ageInput);
 
         if (age >= 18)
         {
@@ -28,7 +29,8 @@ class Program
         // Example 2: Grade Calculator
         Console.WriteLine("--- Grade Calculator ---");
         Console.Write("Enter your test score (0-100): ");
-        int score = int.Parse(Console.ReadLine());
+        string scoreInput = Console.ReadLine() ?? "0";
+        int score = int.Parse(scoreInput);
 
         if (score >= 90)
         {
@@ -70,11 +72,12 @@ class Program
         int attempts = 0;
 
         Console.WriteLine("I'm thinking of a number between 1 and 5!");
-        
+
         while (guess != secretNumber)
         {
             Console.Write("Enter your guess: ");
-            guess = int.Parse(Console.ReadLine());
+            string guessInput = Console.ReadLine() ?? "0";
+            guess = int.Parse(guessInput);
             attempts++;
 
             if (guess == secretNumber)
@@ -95,7 +98,8 @@ class Program
         // Example 5: Switch Statement
         Console.WriteLine("--- Day of the Week ---");
         Console.Write("Enter a day number (1-7): ");
-        int dayNumber = int.Parse(Console.ReadLine());
+        string dayInput = Console.ReadLine() ?? "0";
+        int dayNumber = int.Parse(dayInput);
 
         switch (dayNumber)
         {
@@ -129,9 +133,10 @@ class Program
         // Example 6: Logical Operators
         Console.WriteLine("--- Movie Theater Check ---");
         Console.Write("Enter your age: ");
-        int movieAge = int.Parse(Console.ReadLine());
+        string movieAgeInput = Console.ReadLine() ?? "0";
+        int movieAge = int.Parse(movieAgeInput);
         Console.Write("Do you have a student ID? (yes/no): ");
-        string hasStudentId = Console.ReadLine().ToLower();
+        string hasStudentId = (Console.ReadLine() ?? "no").ToLower();
 
         bool isStudent = hasStudentId == "yes";
 

@@ -2,6 +2,28 @@
 
 This folder contains fun projects that combine concepts from multiple lessons. These projects are designed to be engaging and help reinforce what you've learned!
 
+## 🎓 Student Management System
+
+**Location**: `StudentManagementSystem/`
+
+**What you'll practice**:
+- Object-oriented programming (classes, inheritance, encapsulation)
+- File handling and JSON serialization
+- Collections and LINQ queries
+- Exception handling and validation
+- Menu-driven console applications
+- Data persistence and retrieval
+
+**Features**:
+- Complete student registration system
+- Course management and enrollment
+- Grade tracking and GPA calculation
+- Comprehensive reporting and statistics
+- Data import/export functionality
+- Search and filtering capabilities
+
+**Perfect for**: Demonstrating mastery of all OCR A-Level concepts in a real-world application
+
 ## 🎯 Number Guessing Game
 
 **Location**: `NumberGuessingGame/`
@@ -29,11 +51,11 @@ dotnet run
 
 ## 🚀 Coming Soon
 
-More projects will be added as you progress through the lessons:
+More projects will be added to further extend your learning:
 
-- **Simple Calculator** (after Lesson 4: Methods)
-- **Text Adventure Game** (after Lesson 5: Classes)
-- **Student Grade Manager** (combining all concepts)
+- **Library Management System** (extending database concepts)
+- **Simple Web API** (introduction to web development)
+- **File Encryption Tool** (advanced algorithms)
 
 ## 💡 Tips for Working on Projects
 

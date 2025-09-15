@@ -30,7 +30,7 @@ class Program
         Console.WriteLine("--- Math Examples ---");
         int num1 = 15;
         int num2 = 4;
-        
+
         Console.WriteLine($"First number: {num1}");
         Console.WriteLine($"Second number: {num2}");
         Console.WriteLine($"Addition: {num1} + {num2} = {num1 + num2}");
@@ -43,12 +43,12 @@ class Program
         // Getting input from the user
         Console.WriteLine("--- Interactive Section ---");
         Console.Write("What's your favorite color? ");
-        string favoriteColor = Console.ReadLine();
-        
+        string favoriteColor = Console.ReadLine() ?? "Unknown";
+
         Console.Write("What's your lucky number? ");
-        string numberInput = Console.ReadLine();
+        string numberInput = Console.ReadLine() ?? "0";
         int luckyNumber = int.Parse(numberInput); // Convert text to number
-        
+
         Console.WriteLine($"\nAwesome! Your favorite color is {favoriteColor}");
         Console.WriteLine($"and your lucky number is {luckyNumber}!");
         Console.WriteLine($"Your lucky number times 2 is {luckyNumber * 2}!");

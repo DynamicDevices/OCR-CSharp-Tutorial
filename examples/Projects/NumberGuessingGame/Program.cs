@@ -11,7 +11,7 @@ class Program
 
         // Get player's name
         Console.Write("What's your name? ");
-        string playerName = Console.ReadLine();
+        string playerName = Console.ReadLine() ?? "Player";
         Console.WriteLine($"Hello, {playerName}! Let's play!");
         Console.WriteLine();
 
@@ -25,7 +25,7 @@ class Program
             totalGames++;
             Console.WriteLine($"🎯 Game #{totalGames}");
             Console.WriteLine("I'm thinking of a number between 1 and 100...");
-            
+
             // Generate random number
             Random random = new Random();
             int secretNumber = random.Next(1, 101);
@@ -38,9 +38,9 @@ class Program
             {
                 Console.WriteLine($"You have {maxAttempts - attempts} attempts left.");
                 Console.Write("Enter your guess: ");
-                
+
                 // Input validation
-                string input = Console.ReadLine();
+                string input = Console.ReadLine() ?? "";
                 if (!int.TryParse(input, out guess))
                 {
                     Console.WriteLine("Please enter a valid number!");
@@ -55,7 +55,7 @@ class Program
                     Console.WriteLine($"The number was {secretNumber}!");
                     Console.WriteLine($"You won in {attempts} attempts!");
                     gamesWon++;
-                    
+
                     // Bonus messages based on performance
                     if (attempts == 1)
                     {
@@ -73,7 +73,7 @@ class Program
                 else if (guess < secretNumber)
                 {
                     Console.WriteLine("📈 Too low! Try a higher number.");
-                    
+
                     // Give hints
                     if (secretNumber - guess > 20)
                     {
@@ -83,7 +83,7 @@ class Program
                 else
                 {
                     Console.WriteLine("📉 Too high! Try a lower number.");
-                    
+
                     // Give hints
                     if (guess - secretNumber > 20)
                     {
@@ -102,12 +102,12 @@ class Program
             }
 
             Console.WriteLine();
-            
+
             // Show statistics
             Console.WriteLine("📊 Your Statistics:");
             Console.WriteLine($"Games played: {totalGames}");
             Console.WriteLine($"Games won: {gamesWon}");
-            
+
             if (totalGames > 0)
             {
                 double winRate = (double)gamesWon / totalGames * 100;
@@ -117,8 +117,8 @@ class Program
 
             // Ask if they want to play again
             Console.Write("Do you want to play again? (yes/no): ");
-            string playAgainInput = Console.ReadLine().ToLower();
-            
+            string playAgainInput = (Console.ReadLine() ?? "no").ToLower();
+
             if (playAgainInput == "yes" || playAgainInput == "y")
             {
                 playAgain = true;
@@ -133,12 +133,12 @@ class Program
         // Final goodbye message
         Console.WriteLine($"\nThanks for playing, {playerName}! 👋");
         Console.WriteLine("Hope you had fun learning C#!");
-        
+
         if (gamesWon > 0)
         {
             Console.WriteLine($"You won {gamesWon} out of {totalGames} games!");
         }
-        
+
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
     }
